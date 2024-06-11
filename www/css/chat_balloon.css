@@ -1,0 +1,208 @@
+.triangle-border {
+    position: relative;
+    padding: 15px;
+    margin: 1em 0 3em;
+    border: 5px solid #5a8f00;
+    color: #333;
+    background: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+p {
+    margin: 1em 0;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+
+
+.triangle-border:before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 40px;
+    border-width: 20px 20px 0;
+    border-style: solid;
+    border-color: #5a8f00 transparent;
+    display: block;
+    width: 0;
+}
+
+.triangle-border:after {
+    content: "";
+    position: absolute;
+    bottom: -13px;
+    left: 47px;
+    border-width: 13px 13px 0;
+    border-style: solid;
+    border-color: #fff transparent;
+    display: block;
+    width: 0;
+}
+
+
+.triangle-border.top:before {
+    top: -20px;
+    bottom: auto;
+    left: auto;
+    right: 40px;
+    border-width: 0 20px 20px;
+}
+
+.triangle-border.top:after {
+    top: -13px;
+    bottom: auto;
+    left: auto;
+    right: 47px;
+    border-width: 0 13px 13px;
+}
+
+.chattable{
+	
+	width:100%;
+		border-color:#060 !important;
+		border:thick;
+		border-style:solid;
+	   	
+		
+}
+
+
+.chattable td {
+	width:50%;
+	padding:10px 10px 10px 10px;
+	border-left:thick;
+	border-right:thick;
+	border-color:#060;
+	border-left-style:solid;
+	border-right-style:solid;
+	
+}
+
+.chattable2{
+	
+}
+.ballontable{
+	
+	width:100%;
+  border-style:none;
+   direction:rtl;	
+		
+}
+
+
+.ballontable td {
+	width:100%;
+	padding:0px 0px 0px 0px;
+	 border-style:none;
+}
+
+.chattable2 td {
+	width:50%;
+	padding:5px 5px 5px 5px;
+}
+
+#chatdiv {
+
+	width:100%;
+	padding-left:5px;
+	padding-right:5px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+/***************************TE chat new design***********/
+#chats_container #bottomdiv{
+	margin-right: -15px;
+    margin-left: -15px;
+	    z-index: 10;
+}
+#bottomdiv {
+	width: 100%;
+    position: fixed;
+    bottom: 2rem;
+}
+
+.emm{
+	line-height: 28px !important;
+    margin: 0;
+	    margin-top: 0.75rem;
+}
+.citizen_chatinputDiv {
+    background-color: #203b96;
+    padding: 1rem 0;
+	    margin: 0 auto;
+}
+.clerk_chatinputDiv {
+    background-color: #007bff;
+    padding: 1rem 0;
+	    margin: 0 auto;
+}
+.chatinput_title{
+	color: white;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #dddddd63;
+}
+#bottomdiv button.emm {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/**************************************/
+#coolmenu{
+position: absolute;
+    border: 1px solid black;
+    /* width: 170px; */
+    background-color: #962071;
+    display: none;
+    z-index: 1000;
+}
+
+#coolmenu a{
+    font-size: 1rem;
+    padding: 1rem;
+    padding-left: 4px;
+    display: block;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #dddddd;
+}
+
+html>body #coolmenu a{ /*Non IE rule*/
+width: auto;
+}
+
+
+#coolmenu2{
+position: absolute;
+border: 1px solid black;
+width: 170px;
+background-color: #E6E6E6;
+display:none;
+}
+
+#coolmenu2 a{
+font: bold 13px Verdana;
+padding: 2px;
+padding-left: 4px;
+display: block;
+width: 100%;
+color: black;
+text-decoration: none;
+border-bottom: 1px solid black;
+}
+
+html>body #coolmenu2 a{ /*Non IE rule*/
+width: auto;
+}

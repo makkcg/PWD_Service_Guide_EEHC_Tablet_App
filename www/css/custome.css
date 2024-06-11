@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+.turnred:hover { color: red; cursor: pointer; }
+
+h5 {cursor:pointer;font-weight:bold;}
+@media only screen and (min-width: 600px) {
+    h5 {font-size: 1.5em !important;}
+}
+
+@media only screen and (max-width: 420px) {
+    h5 {font-size: 1em !important;}
+}
+
+
+@media only screen and (min-width: 600px) {
+    .btn {font-size: 1.5em !important;}
+}
+
+@media only screen and (max-width: 450px) {
+    .btn {font-size: 1em !important;}
+}
+
+@media only screen and (min-width: 600px) {
+    #btnabout {font-size: 1.5em !important;}
+	 #btnsettings {font-size: 1.5em !important;}
+	 #btnhelp  {font-size: 1.5em !important;}
+	  #btnhome  {font-size: 1.5em !important;}
+	  #btnback {font-size: 1.5em !important;}
+}
+
+@media only screen and (max-width: 420px) {
+   #btnabout {font-size: 1em !important;}
+	 #btnsettings {font-size: 1em !important;}
+	 #btnhelp  {font-size: 1em !important;}
+	  #btnhome  {font-size: 1em !important;}
+	  #btnback {font-size: 1em !important;}
+}
+/*
+@media only screen and (max-height: 640px) {
+    #hdialogbody {height: 420px !important;}
+}
+
+@media only screen and (min-height: 700px) {
+    #hdialogbody {height: 550px !important;}
+}
+
+@media only screen and (min-height: 900px) {
+    #hdialogbody {height: 750px !important;}
+}
+
+@media only screen and (min-height: 1200px) {
+    #hdialogbody {height: 1000px !important;}
+}
+
+*/
+.allicons{
+	position: absolute;
+   	top: 0;
+	bottom:-25px;
+    left: 0;
+    overflow-x: hidden;
+	overflow-y: scroll;
+}
+

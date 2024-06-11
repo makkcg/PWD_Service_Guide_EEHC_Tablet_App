@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Khalifa Computer Group - مجموعة خليفة للكمبيوتر">
+	<link href="te.ico" rel="shortcut icon" type="image/x-icon">
+    <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="lib/bs/bootstrap.min.css" crossorigin="anonymous">-->
+	<!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="lib/bs/bootstrap.min.css" crossorigin="anonymous">
+	<!------css addons and plugins------->
+	<!--<link rel="stylesheet" href="lib/jq-confirm/jquery-confirm.min.css" crossorigin="anonymous">-->
+	<!--- --------------------------------swiper---------------------------->
+    <!--<link href="lib/swiper/swiper.min.css" rel="stylesheet">--->
+	
+	<!------common css------>
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/apptheme.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/sidebar.css" crossorigin="anonymous">
+	
+	
+	<!---this page css---->
+	<link rel="stylesheet" href="css/main.css" crossorigin="anonymous">
+	
+    <title>تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة (صم ومكفوفين)</title>
+  </head>
+  <body>
+    <div class="wrapperpage"><!---page wrapper-->
+	<!-- Modal video player------------------------------------------>
+		<div id="video_popup" class="modal  easein"  data-backdrop="static" data-keyboard="false"  tabindex="-1" data-easein="bounceIn" role="document" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered  modal-lg modal-fullwidth" >
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			 <!---modal header---->
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" style="text-align:center;font-size:1.2em;"></h4>
+			  </div>
+			  
+			  <!---end modal header---->
+			  <!---sign language modal body---->
+			  <div class="modal-body" >
+				<div class="">
+					<!----User Guide rows/sentences ----->
+					<div class="hide_copyright"></div>
+					<video id="video_player_pop" class="video_player_pop" width="100%" controls>
+						<source src="" type="video/mp4">
+					هذا المتصفح لا يدعم تشغيل الفيديو ، يرجى استخدام متصفح الكروم
+					</video>
+				</div>
+			  </div>
+			  <!---end modal body---->
+			  <div class="modal-footer">
+				<button type="button" id="close_fav_pop_btn" class="btn btn-danger" data-dismiss="modal">إغلاق</button>				
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	<!---end Modal popup-------------------------------->
+	<!-- Modal images viewer------------------------------------------>
+		<div id="images_popup" class="modal expandIn" data-easein="expandIn"  tabindex="-1" role="dialog" aria-hidden="true" role="document">
+		  <div class="modal-dialog  modal-lg modal-fullwidth" >
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			 <!---modal header---->
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" style="text-align:center;font-size:1.2em;"></h4>
+			  </div>
+			  
+			  <!---end modal header---->
+			  <!---User Guide modal body---->
+			  <div class="modal-body" style="direction:rtl;">
+			  <div class="container-fluid listofimages">
+			  <!----User Guide rows/sentences ----->
+				تظهر الصور هنا
+			  </div>
+			  </div>
+			  <!---end modal body---->
+			  <div class="modal-footer">
+				<button type="button" id="close_fav_pop_btn" class="btn btn-danger" data-dismiss="modal">إغلاق</button>				
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	<!---end Modal image viewer popup-------------------------------->
+		<!---nav sidebar -->
+		<nav class="navbar navbar-expand navbar-dark bg-primary">
+			<a href="#menu-toggle" id="menu-toggle" class="navbar-brand">
+				<span class="navbar-toggler-icon"></span>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsbtns" aria-controls="navbarsbtns" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="topheadertxt">
+					تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة
+			</div>
+			<div class="topheaderlogo">
+					<img src="imgs/welogoheader.png" class="headerwelogoimg">
+			</div>
+
+        </nav>
+		<div id="wrapper" class="toggled">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand"> <a href="main.html"> الرئيسية </a> </li>
+                    <li> <a href="aboutproject.html">عن المشروع</a> </li>
+                    <li> <a href="services.html?mainserviceID=1">الخدمات</a> </li>
+					<li> <a href="tebranches.html">الفروع</a> </li>
+					<li> <a href="chat.html">تحدث مع الموظف</a> </li>
+					                </ul>
+            </div> <!-- /#sidebar-wrapper -->
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="htmlcontent maincategoriespage">
+						<!-----------------------------HTML content to be added here--------------------------->
+						<div class="row">
+								<div class="row col-12 d-flex justify-content-center rounded2 align-items-center complain_intro_container" style="display:none !important;">
+									<div class="col-12 col-sm-3 d-flex justify-content-center align-items-center signbtn_container">
+										<button type="button" class="btn btn-default signvideo_btn img-fluid" data-video="videos/main/1.webm">	
+											<img alt="" title="ترجم للغة الاشارة" src="imgs/signvideoicon.png" class="rounded img-fluid">
+										</button>	
+									</div>
+									<div class="col-12 col-sm-9 d-flex justify-content-center rounded2 align-items-center complain_intro_txt">
+										عند استخدامك للتطبيق ستجد الخدمات والعروض التي تقدمها الشركة مع صور توضيحية وأيقونة للترجمة للغة الاشارة للصم ونص يوضح وصف كل خدمة أو عرض وعند اختيارك لخدمة أو عرض يمكنك معرفة الخطوات المطلوبة للحصول على الخدمة أو العرض ومعرفة المستندات المطلوبة وكذلك الأسئلة الشائعة واجاباتها الخاصة بالخدمة أو العرض والشروط والأحكام الخاصة بهذه الخدمة أو العرض ويمكنك إضافة العرض أو الخدمة للمفضلة.<br>كما يمكنك من خلال البرنامج لديك على المحمول من تقديم شكوى أو مقترح ومتابعتها.<br>كما يمكنك معرفة أماكن فروع الشركة، حيث أنك بعد معرفة خطوات الخدمة وتجهيز أوراقك المطلوبة يمكنك التوجه للفرع للحصول على الخدمة.
+
+									</div>
+								</div>
+															
+								<div class="col-sm-12 col-12 ">
+									
+									<div class="servucebox moblie_main_service">
+										<a class="subserviceslink" href="services.html?mainserviceID=1">
+											<div class="overlaybox serviceA">
+												<div class="mainserviceH">
+													<h2 class="mainservice_h"></h2>
+												</div>
+												<div class="mainserviceIcon">
+													<div class="col-12 justify-content-center align-items-center welogo_div">
+													<table style="width:100%; text-align:center;">
+													<tr>
+													<td>
+															<img class="rounded mx-auto d-block img-fluid welogo_img" src="imgs/eehc_ministry_logo.png" style="height:170px;" data-imgs="imgs/eehc_logo.png">
+													
+													</td>
+													<td>
+														<img class="rounded mx-auto d-block img-fluid welogo_img" src="imgs/eehc_logo.png" style="height:170px;" data-imgs="imgs/eehc_logo.png">
+													</td>
+													</tr>
+													</table>
+													</div>
+												</div>
+											</div>
+										</a>
+										<div class="servicebox_descbox" style="display:none;">
+											<div class="row align-items-center h-100">
+												<div class="col-8 mainservice_desc">
+													
+												</div>
+												<div class="col-4">
+													<button type="button" class="btn btn-default service_main_vid_btn service_main_vid slide-icons-signvid" data-video="data/services/4/4.webm"><img alt="" title="ترجم للغة الاشارة" src="imgs/signvideoicon.png" class="img-responsive"></button>
+												</div>
+											</div><!---end row-->
+										</div>
+									</div>
+									
+								</div>
+								
+								
+								<div class="col-sm-12 col-12 row footer_logos">
+									<div class="col-3">
+			
+											<img class="rounded mx-auto d-block img-fluid supporting_logos" style="height:190px;" src="imgs/KCGGWithTitle.png" data-imgs="imgs/KCGGWithTitle.png">
+											<div class="col-12 justify-content-center align-items-center footer_txt">تطوير وبرمجة - مجموعة خليفة للكمبيوتر</div>
+										</div>
+										<div class="col-3">
+											
+											<img class="rounded mx-auto d-block img-fluid supporting_logos" src="imgs/deafuniionegy_logo_h200.png" data-imgs="imgs/deafuniionegy_logo_h200.png">
+											<div class="col-12 justify-content-center align-items-center footer_txt">اعتماد لغة الاشارة - الاتحاد النوعي لجمعيات الصم</div>
+										</div>
+										<div class="col-3">
+										
+											<img class="rounded mx-auto d-block img-fluid supporting_logos" src="imgs/NAID_logo.jpg" data-imgs="imgs/NAID_logo.jpg">
+											<div class="col-12 justify-content-center align-items-center footer_txt">برعاية - الأكاديمية الوطنيه لتكنولوجيا المعلومات لذوي الاعاقة</div>
+										</div>
+										<div class="col-3">
+										
+											<img class="rounded mx-auto d-block img-fluid supporting_logos" src="imgs/MCITlogoAr.png" data-imgs="imgs/MCITlogoAr.png">
+											<div class="col-12 justify-content-center align-items-center footer_txt">برعاية وزارة الاتصالات وتكنولوجيا المعلومات</div>
+										</div>
+								</div>
+								<div class="col-sm-12 col-12">
+								
+								</div>
+								
+							</div><!----End Row--->
+						<!---------------------------END HTML content------------------------------------------>
+       		</div>
+                </div>
+            </div> <!-- /#page-content-wrapper -->
+        </div> <!---END nav sidebar -->
+		<!-- /#wrapper -->
+		
+		
+	</div><!---End page wrapper--->
+	
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="lib/jquery/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="lib/popper/popper.min.js" crossorigin="anonymous"></script>
+    <!---bootstrap 4
+	<script src="lib/bs/bootstrap.min.js" crossorigin="anonymous"></script>--->
+	<!---bootstrap 4 RTL--->
+	<script src="lib/bs/rtl/bootstrap.min.js" crossorigin="anonymous"></script>
+	
+	<!------js addons and plugins------->
+	<script src='lib/velocity/velocity.min.js'></script>
+	<script src='lib/velocity/velocity.ui.min.js'></script>
+	<!--<script src="lib/jq-confirm/jquery-confirm.min.js" crossorigin="anonymous"></script>-->
+	<!--<script src="lib/nicescroll-sidebar/jquery.nicescroll.min.js" crossorigin="anonymous"></script>-->
+	<!--<script src="lib/swiper/swiper.min.js" crossorigin="anonymous"></script>-->
+	
+	<!------common js------>
+	<script src="js/sidebar.js" crossorigin="anonymous"></script>
+	<script src="js/appcomon.js" crossorigin="anonymous"></script>
+	
+	<!---this page js---->
+	<script src="js/main.js" crossorigin="anonymous"></script>
+	
+  </body>
+</html>

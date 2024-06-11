@@ -1,0 +1,139 @@
+
+#ContentOfentities{
+    background-color: #fff;
+    height: 21em;
+	border: 1px;
+    border-radius: 12px;
+
+}
+#container1 {
+	/*background-color: #fff;
+	text-align:center;
+    margin-right: 30px;
+	display: inline-block;
+	 white-space: normal;*/
+  display: inline-block;
+  width: 14em;
+  height: 9em;
+  margin: 0.5em;
+  border: 1px #FFF;
+  border-radius:10px;
+  padding: 3px;
+  white-space: normal;
+  text-align: center;
+  /*overflow-y: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;  
+  -moz-user-select: none;   
+  -ms-user-select: none;     
+  user-select: none;*/
+
+}
+#NumOfProcedure{
+  background: #515151;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: max;
+  text-align: center;
+  color: white;
+  width: 100%;
+  padding-bottom:100%;
+  height:0;
+  position:relative;
+
+}
+#circle-caption{
+ display: block;
+  left: 0;
+  height: 1em;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -.5em;
+  	
+}
+
+#container2 {
+ /*position: relative;
+  height: 17em;
+ width: 99%;
+  margin: 2px auto;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+ cursor: grab;
+  cursor : -o-grab;
+   cursor : -moz-grab;
+    cursor : -webkit-grab;*/
+}
+
+#container4 {
+  display: none;
+}
+#container3 {
+  display: none;
+}
+#button{
+height:70px;
+ width:70px;
+ text-align:center;
+}
+
+
+#counter{
+	text-align:center;
+}
+#ButtonDiv{
+	text-align:center;
+}
+#PicContainer{
+	position: relative;
+  height: 17em;
+  width: 99%;
+  margin: 2px auto;
+  text-align: center;
+  white-space: nowrap;
+  overflow-x: hidden;
+ cursor: grab;
+  cursor : -o-grab;
+   cursor : -moz-grab;
+    cursor : -webkit-grab;
+}
+#PicContent{
+max-width: 116px;
+    height: 102px;
+
+}
+
+/*-----------------number of procedure---------------------------------------------*/
+.buttontest{
+    /*padding:.5em .6em .4em .6em;*/
+	/*margin:.5em;*/
+	display:inline-block;
+	position:relative;
+    width: 40px;
+	-webkit-border-radius:8px;
+	border-radius: 100px;
+    border: 4px solid #fff;	
+}
+.swiper-container {
+    width: 100%;
+/*height: auto;*/
+}
+#buttonincontainer{
+height:50px;
+ width:50px;
+ float:left;
+}
+.service_main_vid_btn img{
+    width: 70px !important;
+    float: left;
+}
+.service_main_vid_btn{
+  padding: 0;
+  float: right;
+  height: 50px;
+  width: 50px;
+}

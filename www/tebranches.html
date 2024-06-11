@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Khalifa Computer Group - مجموعة خليفة للكمبيوتر">
+	<link href="te.ico" rel="shortcut icon" type="image/x-icon">
+    <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="lib/bs/bootstrap.min.css" crossorigin="anonymous">-->
+	<!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="lib/bs/bootstrap.min.css" crossorigin="anonymous">
+	<!------css addons and plugins------->
+	<!--<link rel="stylesheet" href="lib/jq-confirm/jquery-confirm.min.css" crossorigin="anonymous">-->
+	<!--- --------------------------------swiper---------------------------->
+    <!--<link href="lib/swiper/swiper.min.css" rel="stylesheet">--->
+	
+	<!------common css------>
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/apptheme.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/sidebar.css" crossorigin="anonymous">
+	
+	
+	<!---this page css---->
+	<link rel="stylesheet" href="css/tebranches.css" crossorigin="anonymous">
+	
+    <title>مشروع اتاحة التعريف بخدمات شركة مصر العليا لتوزيع الكهرباء للأشخاص ذوي الإعاقة</title>
+  </head>
+  <body>
+    <div class="wrapperpage"><!---page wrapper-->
+	<!-- Modal video player------------------------------------------>
+		<div id="video_popup" class="modal  easein" tabindex="-1" data-easein="bounceIn" role="document" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered  modal-lg modal-fullwidth" >
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			 <!---modal header---->
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" style="text-align:center;font-size:1.2em;"></h4>
+			  </div>
+			  
+			  <!---end modal header---->
+			  <!---sign language modal body---->
+			  <div class="modal-body" >
+				<div class="">
+					<!----User Guide rows/sentences ----->
+					<div class="hide_copyright"></div>
+					<video id="video_player_pop" class="video_player_pop" width="100%" controls>
+						<source src="" type="video/mp4">
+					هذا المتصفح لا يدعم تشغيل الفيديو ، يرجى استخدام متصفح الكروم
+					</video>
+				</div>
+			  </div>
+			  <!---end modal body---->
+			  <div class="modal-footer">
+				<button type="button" id="close_fav_pop_btn" class="btn btn-danger" data-dismiss="modal" onclick="stopsound()">إغلاق</button>				
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	<!---end Modal popup-------------------------------->
+	<!-- Modal images viewer------------------------------------------>
+		<div id="images_popup" class="modal expandIn" data-easein="expandIn"  tabindex="-1" role="dialog" aria-hidden="true" role="document">
+		  <div class="modal-dialog  modal-lg modal-fullwidth" >
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			 <!---modal header---->
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" style="text-align:center;font-size:1.2em;"></h4>
+			  </div>
+			  
+			  <!---end modal header---->
+			  <!---User Guide modal body---->
+			  <div class="modal-body" style="direction:rtl;">
+			  <div class="container-fluid listofimages">
+			  <!----User Guide rows/sentences ----->
+				تظهر الصور هنا
+			  </div>
+			  </div>
+			  <!---end modal body---->
+			  <div class="modal-footer">
+				<button type="button" id="close_fav_pop_btn" class="btn btn-danger" data-dismiss="modal">إغلاق</button>				
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	<!---end Modal image viewer popup-------------------------------->
+		<!---nav sidebar -->
+		<nav class="navbar navbar-expand navbar-dark bg-primary">
+			<a href="#menu-toggle" id="menu-toggle" class="navbar-brand">
+				<span class="navbar-toggler-icon"></span>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsbtns" aria-controls="navbarsbtns" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="topheadertxt">
+					تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة (صم ومكفوفين)
+			</div>
+			<!--<div class="topheaderlogo_visualdis_btn">
+					<img src="imgs/VisualDisability_btn_active.png" class="headerwelogoimg">
+			</div>
+			<div class="topheaderlogo_phys_btn">
+					<img src="imgs/physicdisability_btn_active.png" class="headerwelogoimg">
+			</div>-->
+			<div class="topheaderlogo">
+					<img src="imgs/welogoheader.png" class="headerwelogoimg">
+			</div>
+
+        </nav>
+		<div class="sidebar-settings">
+			<ul>
+				<li style="">
+					<div class="btn contrast_btn"  title="التباين" rel="nofollow">
+						<img src="imgs/contrast_btn_off.png" class="contrastimg">
+						<span>التباين</span>
+					</div>
+				</li>
+				<li style="">
+					<div class="btn" title="حجم الخط" target="_self" rel="nofollow">
+						
+						<!-- <i class="fa fa-arrow-left"></i> -->
+						<div class="quantity">
+						<input class="fontsizeinput " type="number" min="1" max="9" step="1" value="1"/>
+						</div>
+						
+						<!-- <span>حجم الخط</span> -->
+					</div>
+				</li>
+				<!-- <li> -->
+					<!-- <a href="services.html?mainserviceID=1" title="الخدمات" target="_self" rel="nofollow"> -->
+						<!-- <i class="fa fa-bars "></i> -->
+						<!-- <span>الخدمات</span> -->
+					<!-- </a> -->
+				<!-- </li>		 -->
+				<!-- <li> -->
+					<!-- <a href="tebranches.html" title="الفروع" target="_self" rel="nofollow"> -->
+						<!-- <i class="fa fa-arrows "></i> -->
+						<!-- <span>الفروع</span> -->
+					<!-- </a> -->
+				<!-- </li> -->
+				 <!-- <li> -->
+					<!-- <a href="aboutproject.html"  title="عن المشروع" target="_self" rel="nofollow"> -->
+						<!-- <i class="fa fa-info "></i> -->
+						<!-- <span>عن المشروع</span> -->
+					<!-- </a> -->
+				<!-- </li>        -->
+
+			</ul>
+		</div>
+		<div class="sidebar-social">
+			<ul>
+				<li style="background-color: saddlebrown;">
+					<div class="btn Prevtbtn"  title="السابق" target="_self" rel="nofollow">
+						<i class="fa fa-arrow-right"></i>
+						<span>السابق</span>
+					</div>
+				</li>
+				<li style="background-color: saddlebrown;">
+					<div class="btn Nextbtn" title="التالي" target="_self" rel="nofollow">
+						
+						<i class="fa fa-arrow-left"></i>
+						<span>التالي</span>
+					</div>
+				</li>
+				<li>
+					<a href="services.html?mainserviceID=1" title="الخدمات" target="_self" rel="nofollow">
+						<i class="fa fa-bars "></i>
+						<span>الخدمات</span>
+					</a>
+				</li>		
+				<li>
+					<a href="tebranches.html" title="الفروع" target="_self" rel="nofollow">
+						<i class="fa fa-arrows "></i>
+						<span>الفروع</span>
+					</a>
+				</li>
+				 <li>
+					<a href="aboutproject.html"  title="عن المشروع" target="_self" rel="nofollow">
+						<i class="fa fa-info "></i>
+						<span>عن المشروع</span>
+					</a>
+				</li>       
+
+			</ul>
+		</div>
+		<div id="wrapper" class="toggled">
+		<div class="topheaderlogo_phys_btn topheaderlogo_phys_btn_fixed">
+					<img src="imgs/physicdisability_btn_active.png" class="headerwelogoimg">
+			</div>
+			<div class="topheaderlogo_visualdis_btn topheaderlogo_visualdis_btn_fixed">
+					<img src="imgs/VisualDisability_btn_active.png" class="headerwelogoimg">
+			</div>
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand"> <a href="main.html"> الرئيسية </a> </li>
+                    <li> <a href="aboutproject.html">عن المشروع</a> </li>
+                    <!-- <li> <a href="registeruser.html">تسجيل البيانات</a> </li> -->
+					<!-- <li> <a href="offers.html">العروض</a></li> -->
+                    <li> <a href="services.html?mainserviceID=1">الخدمات</a> </li>
+                    <!-- <li> <a href="services.html?mainserviceID=20">خدمات الانترنت المنزلي</a> </li> -->
+                    <!-- <li> <a href="services.html?mainserviceID=39">خدمات الخط الأرضي</a> </li> -->
+                    <!-- <li> <a href="importantnumbers.html">ارقام تهمك</a> </li> -->
+					<!-- <li> <a href="complain.html">قدم شكوى / مقترح</a> </li> -->
+					<!-- <li> <a href="replies.html">متابعة شكوى / مقترح</a> </li> -->
+					<!-- <li> <a href="myfav.html">المفضلة</a> </li> -->
+					<!-- <li> <a href="callcs.html">ارقام خدمة العملاء</a> </li> -->
+					<li> <a href="tebranches.html">الفروع</a> </li>
+					<!-- <li> <a href="otherdeafapps.html">برامج اخرى لذوي الأعاقة</a> </li> -->
+                    <li> <a href="chat.html">تحدث مع الموظف</a> </li> 
+                </ul>
+            </div> <!-- /#sidebar-wrapper -->
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="htmlcontent tebranches_page">
+						<!-----------------------------HTML content to be added here--------------------------->
+						<div class="row">
+								<div class="row col-12 d-flex justify-content-center rounded2 align-items-center impNo_intro_container">
+									<!---<div class="col-12 col-sm-3 d-flex justify-content-center align-items-center signbtn_container">
+										<button type="button" class="btn btn-default signvideo_btn img-fluid" data-video="videos/importantnumbers/1.webm">	
+											<img alt="" title="ترجم للغة الاشارة" src="imgs/signvideoicon.png" class="rounded img-fluid">
+										</button>	
+									</div>-->
+									<div class="col-12 col-sm-12 d-flex justify-content-center rounded2 align-items-center impNo_intro_txt">
+										اختر المحافظة لتظهر لك البيانات الخاصة بالفروع في كل محافظة
+									</div>
+								</div><!---end inpNo intro container--->
+								<!---gov selection dropdownlist--->
+								<div class="row col-12 d-flex justify-content-center rounded2 align-items-center impNo_intro_container">
+									
+										
+												<div class="col-12 d-flex justify-content-center rounded2 align-items-center">
+												  <label for="sel_gov_dd" class="col-3 d-flex justify-content-center align-items-center">اختر المحافظة</label>
+												  <select class="col-9 d-flex justify-content-center align-items-center form-control sel_gov_dd" id="sel_gov_dd">
+													
+												  </select>
+												</div>
+										
+
+									
+								</div><!---end gov selection dropdownlist--->
+								<div class="col-12  justify-content-center rounded2 align-items-center importantNo_rows_container">
+								<div class="col-12 tablecontainer scrolldiv">
+									<div class="row justify-content-center align-items-center importantNo_rows_container_inner_head">
+																					
+											<div class="col-1 col-sm-1  justify-content-center align-items-center inp_title left_border">
+											اسم الفرع
+											</div>
+											<div class="col-2 col-sm-2  justify-content-center align-items-center inp_txt left_border">
+												العنوان 											</div>
+											<!--<div class="col-1 col-sm-1  justify-content-center align-items-center inp_txt left_border">
+												تليفون
+											</div>-->
+											<div class="col-2 col-sm-2  justify-content-center align-items-center inp_txt left_border">
+												ايميل
+											</div>
+											<div class="col-1 col-sm-1  justify-content-center align-items-center inp_txt left_border">
+												موبايل
+											</div>
+											<div class="col-1 col-sm-1  justify-content-center align-items-center inp_txt left_border">
+												ملاحظات
+											</div>
+											<div class="col-1 col-sm-1  justify-content-center align-items-center inp_txt">
+												خريطة
+											</div>
+											<div class="col-1 col-sm-1  justify-content-center align-items-center inp_txt">
+												الصورة
+											</div>
+											<div class="col-1 col-sm-1  justify-content-center align-items-center inp_txt">
+												متاح
+											</div>
+											<div class="col-1 col-sm-1  justify-content-center align-items-center inp_txt">
+												صوت
+											</div>
+											<hr class="hr_row">
+									</div>
+									<div id="codes_rows" class="codes_rows">
+										
+									</div>
+									</div><!---end schroll div-->
+								</div><!--end branches tables container--->
+							</div><!----End Row--->
+						<!---------------------------END HTML content------------------------------------------>
+       		</div>
+                </div>
+            </div> <!-- /#page-content-wrapper -->
+        </div> <!---END nav sidebar -->
+		<!-- /#wrapper -->
+		
+		
+	</div><!---End page wrapper--->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="lib/jquery/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="lib/popper/popper.min.js" crossorigin="anonymous"></script>
+    <!---bootstrap 4
+	<script src="lib/bs/bootstrap.min.js" crossorigin="anonymous"></script>--->
+	<!---bootstrap 4 RTL--->
+	<script src="lib/bs/rtl/bootstrap.min.js" crossorigin="anonymous"></script>
+	
+	<!------js addons and plugins------->
+	<script src='lib/velocity/velocity.min.js'></script>
+	<script src='lib/velocity/velocity.ui.min.js'></script>
+	<!--<script src="lib/jq-confirm/jquery-confirm.min.js" crossorigin="anonymous"></script>-->
+	<!--<script src="lib/nicescroll-sidebar/jquery.nicescroll.min.js" crossorigin="anonymous"></script>-->
+	<!--<script src="lib/swiper/swiper.min.js" crossorigin="anonymous"></script>-->
+	
+	<!------common js------>
+	<script src="js/sidebar.js" crossorigin="anonymous"></script>
+	<script src="js/appcomon.js" crossorigin="anonymous"></script>
+	
+	<!---this page js---->
+	<script src="js/tebranches.js" crossorigin="anonymous"></script>
+	<script>
+	function stopsound()
+	{
+	$("#video_player_pop").get(0).pause();
+
+	}
+	</script>
+  </body>
+</html>

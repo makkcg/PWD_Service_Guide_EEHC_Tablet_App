@@ -1,0 +1,50 @@
+@media (max-width: 3000px) {
+.buttom {
+    height: 350px;
+}
+}
+@media (max-width: 1024px) {
+.buttom {
+    height: 400px;
+}
+}
+@media (max-width: 966px) {
+.modal-dialog {
+    width: 90%;
+    margin: 30px auto;
+}
+.buttom{
+ height: 250px;
+}
+}
+@media (max-width: 768px) {
+.buttom {
+    height: 250px;
+}
+}
+@media (max-width: 603px) {
+.buttom {
+    height: 250px;
+}
+}
+@media (max-width: 460px) {
+.buttom {
+    height: 300px;
+}
+}
+@media (max-width: 360px) {
+.buttom {
+    height: 250px;
+}
+}
+@media (max-width: 320px) {
+.buttom {
+    height: 198px;
+}
+}
+@media (max-width: 240px) {
+.buttom {
+    height: 250px;
+}
+}
+

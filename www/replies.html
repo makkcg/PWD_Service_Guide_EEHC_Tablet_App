@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Khalifa Computer Group - مجموعة خليفة للكمبيوتر">
+	<link href="te.ico" rel="shortcut icon" type="image/x-icon">
+    <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="lib/bs/bootstrap.min.css" crossorigin="anonymous">-->
+	<!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="lib/bs/bootstrap.min.css" crossorigin="anonymous">
+	<!------css addons and plugins------->
+	<link rel="stylesheet" href="lib/jq-confirm/jquery-confirm.min.css" crossorigin="anonymous">
+	<!--- --------------------------------swiper---------------------------->
+    <!--<link href="lib/swiper/swiper.min.css" rel="stylesheet">--->
+	
+	<!------common css------>
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/apptheme.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/sidebar.css" crossorigin="anonymous">
+	
+	
+	<!---this page css---->
+	<link rel="stylesheet" href="css/replies.css" crossorigin="anonymous">
+	
+    <title>تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة (صم ومكفوفين)</title>
+  </head>
+  <body>
+    <div class="wrapperpage"><!---page wrapper-->
+	<!-- Modal video player------------------------------------------>
+		<div id="video_popup" class="modal  easein" tabindex="-1" data-easein="bounceIn" role="document" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered  modal-lg modal-fullwidth" >
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			 <!---modal header---->
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" style="text-align:center;font-size:1.2em;"></h4>
+			  </div>
+			  
+			  <!---end modal header---->
+			  <!---sign language modal body---->
+			  <div class="modal-body" >
+				<div class="">
+					<!----User Guide rows/sentences ----->
+					<div class="hide_copyright"></div>
+					<video id="video_player_pop" class="video_player_pop" width="100%" controls>
+						<source src="" type="video/mp4">
+					هذا المتصفح لا يدعم تشغيل الفيديو ، يرجى استخدام متصفح الكروم
+					</video>
+				</div>
+			  </div>
+			  <!---end modal body---->
+			  <div class="modal-footer">
+				<button type="button" id="close_fav_pop_btn" class="btn btn-danger" data-dismiss="modal">إغلاق</button>				
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	<!---end Modal popup-------------------------------->
+	<!-- Modal images viewer------------------------------------------>
+		<div id="images_popup" class="modal expandIn" data-easein="expandIn"  tabindex="-1" role="dialog" aria-hidden="true" role="document">
+		  <div class="modal-dialog  modal-lg modal-fullwidth" >
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			 <!---modal header---->
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" style="text-align:center;font-size:1.2em;"></h4>
+			  </div>
+			  
+			  <!---end modal header---->
+			  <!---User Guide modal body---->
+			  <div class="modal-body" style="direction:rtl;">
+			  <div class="container-fluid listofimages">
+			  <!----User Guide rows/sentences ----->
+				تظهر الصور هنا
+			  </div>
+			  </div>
+			  <!---end modal body---->
+			  <div class="modal-footer">
+				<button type="button" id="close_fav_pop_btn" class="btn btn-danger" data-dismiss="modal">إغلاق</button>				
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	<!---end Modal image viewer popup-------------------------------->
+		<!---nav sidebar -->
+		<nav class="navbar navbar-expand navbar-dark bg-primary">
+			<a href="#menu-toggle" id="menu-toggle" class="navbar-brand">
+				<span class="navbar-toggler-icon"></span>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsbtns" aria-controls="navbarsbtns" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="topheadertxt">
+					تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة (صم ومكفوفين)
+			</div>
+			<div class="topheaderlogo">
+					<img src="imgs/welogoheader.png" class="headerwelogoimg">
+			</div>
+
+        </nav>
+		<div id="wrapper" class="toggled">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                   <li class="sidebar-brand"> <a href="main.html"> الرئيسية </a> </li>
+                    <li> <a href="aboutproject.html">عن المشروع</a> </li>
+                    <li> <a href="registeruser.html">تسجيل البيانات</a> </li>
+					<li> <a href="offers.html">العروض</a></li>
+                    <li> <a href="services.html?mainserviceID=1">خدمات الموبايل</a> </li>
+                    <li> <a href="services.html?mainserviceID=20">خدمات الانترنت المنزلي</a> </li>
+                    <li> <a href="services.html?mainserviceID=39">خدمات الخط الأرضي</a> </li>
+                    <li> <a href="importantnumbers.html">ارقام تهمك</a> </li>
+					<li> <a href="complain.html">قدم شكوى / مقترح</a> </li>
+					<li> <a href="replies.html">متابعة شكوى / مقترح</a> </li>
+					<li> <a href="myfav.html">المفضلة</a> </li>
+					<li> <a href="callcs.html">ارقام خدمة العملاء</a> </li>
+					<li> <a href="tebranches.html">الفروع</a> </li>
+					<li> <a href="otherdeafapps.html">برامج اخرى لذوي الأعاقة</a> </li>
+					<li> <a href="chat.html">تحدث مع الموظف</a> </li>
+                </ul>
+            </div> <!-- /#sidebar-wrapper -->
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="htmlcontent replies_page">
+						<!-----------------------------HTML content to be added here--------------------------->
+						<div class="row">
+							<div class="col-12 d-flex justify-content-center rounded2 align-items-center complain_intro_container">
+								<div class="col-3 d-flex justify-content-center align-items-center signbtn_container">
+									<button type="button" class="btn btn-default slide-icons-signvid signvideo_btn img-fluid" data-video="videos/complainreplies/1.webm">	
+										<img alt="" title="ترجم للغة الاشارة"  src="imgs/signvideoicon.png"   class="rounded img-fluid">
+									</button>	
+								</div>
+								<div class="col-9 d-flex justify-content-center rounded2 align-items-center complain_intro_txt">
+									يمكنك استعراض كافة الشكاوى أو المقترحات التي أرسلتها لخدمة العملاء ، واستعراض الردود منك ومن خدمة العملاء ، كما يمكنك اضافة رد للشكوى أو المقترح وارفاق ملف.
+									ويمكنك البحث عن الشكاوى او المقترحات المقدمة من خلال الرقم القومي.
+								</div>
+							</div>
+							<form  class="col-12 rounded2 replies_form" onsubmit="return false;">
+								<table class="col-12 rounded2 table">
+									<tbody>
+										<tr class="form-group">						 
+											<td >
+													قم بالبحث عن الشكاوى أو المقترحات بالرقم القومي
+											</td>
+											<td>
+											   <input id="searchinp"  name="searchinp" class="form-control" type="text">
+											</td>
+											<td>
+												<input id="searchbtn"  type="button"  class="searchbtn btn  btn-te1 "  value="بحث"></input>
+											</td>
+										</tr>
+										<tr class="form-group">						 
+											<td>
+													ثم اختر الشكوى/المقترح حسب التاريخ أو الرقم
+											</td>
+											<td>
+											   <select id="seldates" class="form-control"></select>
+											</td>
+										</tr>
+										
+									</tbody>
+								</table>
+								
+							</form>
+							<hr class="col-12">
+							<div class="chatmsgs_container col-12">
+								<div class="panel-body">
+									<ul class="chat">
+										<li class="left clearfix chat_item_li">
+											<div class="row justify-content-center align-items-center chatheader">
+												
+												<div class="col-9 col-sm-11 header justify-content-center align-items-center">
+														<strong class="primary-font pull-left chat_user">Jack Sparrow</strong>
+														<small class="pull-left text-muted chat_time">
+															<span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+												</div>
+												<div class="col-3 col-sm-1 user_avatar">
+													<img src="imgs/welogoheader.png" alt="User Avatar" class="pull-left img-circle img-fluid">
+												</div>
+											</div>
+											<div class="row chat_txt_container clearfix justify-content-center align-items-center">
+												<div class=" col-9 col-sm-11 chat_txt_msg chat_txt_cs">
+														مكنك استعراض كافة الشكاوى أو المقترحات التي أرسلتها لخدمة العملاء ، واستعراض الردود منك ومن خدمة العملاء ، كما يمكنك اضافة رد للشكوى أو المقترح وارفاق ملف. و
+												</div>
+												<div class="col-3 col-sm-1 chat_txt_attach">
+													<div class="col-12 justify-content-center align-items-center attach_label rounded">مرفقات</div>
+													<img class="PicContent rounded2 mx-auto d-block img-fluid" src="temp\img\service_deathcert.png" data-imgs="temp\img\service_deathcert.png,temp\img\service_deathcert.png,temp\img\service_deathcert.png">
+												</div>
+											</div>
+										</li>
+										<li class="right clearfix chat_item_li">
+											<div class="row justify-content-center align-items-center chatheader2">
+												<div class="col-3 col-sm-1 user_avatar ">
+													<img src="imgs/reguser.png" alt="User Avatar" class="pull-left img-circle img-fluid">
+												</div>
+												<div class="col-9 col-sm-11 header justify-content-center align-items-center">
+														<strong class="primary-font pull-right chat_user">Jack Sparrow</strong>
+														<small class="pull-right text-muted chat_time">
+															<span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+												</div>
+												
+											</div>
+											<div class="row chat_txt_container clearfix justify-content-center align-items-center">
+												<div class=" col-9 col-sm-11 chat_txt_msg chat_txt_customer">
+														مكنك استعراض كافة الشكاوى أو المقترحات التي أرسلتها لخدمة العملاء ، واستعراض الردود منك ومن خدمة العملاء ، كما يمكنك اضافة رد للشكوى أو المقترح وارفاق ملف. و
+												</div>
+												<div class="col-3 col-sm-1 chat_txt_attach">
+												<div class="col-12 justify-content-center align-items-center attach_label rounded">مرفقات</div>
+													<img class="PicContent rounded2 mx-auto d-block img-fluid" src="temp\img\service_deathcert.png" data-imgs="temp\img\service_deathcert.png,temp\img\service_deathcert.png,temp\img\service_deathcert.png">
+												</div>
+											</div>
+										</li>									
+									</ul>
+								</div>
+								
+							</div><!---end chatmsgs_container--->
+							<div id="addreplydiv" class="chat_new_reply_box col-12">
+									<div class="panel-footer">
+										<form id="csform" action="data/replies/addreply.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+											<div class="row justify-content-center align-items-center">
+												<div class="col-12 col-sm-6 justify-content-center align-items-center">
+													<input type="hidden" id="compid" name="compid" >
+													<input id="txtcustomer" name="txtcustomer" type="text" class="form-control input-sm" placeholder="اضافة رد جديد..." />
+												</div>
+												<div class="col-12 col-sm-4 justify-content-center align-items-center">
+													<div class="row justify-content-center align-items-center">
+														<label for="file" class="col-5">اضافة مرفق للرد...</label>
+														<input type="file" id="file" class="col-7"  name="file" placeholder="اضافة مرفق للرد...">
+													</div>
+												</div>
+												<div class="col-12 col-sm-2 justify-content-center align-items-center">
+													  <input id="submit"  type="submit"  class="btn btn-te1 col-12"  value="أرسل"></input>
+												</div>
+											</div>
+											
+											<input type="hidden" id="submitsource" name="submitsource" value="desktopORtab">
+										</form>
+									</div><!---end panel-footer-->
+							</div><!---end chat_new_reply_box-->
+						</div><!---end row-->
+					</div><!--end replies page-->
+					<hr class="col-12">			
+				</div><!----End container-fluid--->
+						<!---------------------------END HTML content------------------------------------------>
+            </div> <!-- /#page-content-wrapper -->
+        </div> <!-- /#wrapper --><!---END nav sidebar -->
+	</div><!---End page wrapper--->
+	
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="lib/jquery/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="lib/popper/popper.min.js" crossorigin="anonymous"></script>
+    <!---bootstrap 4
+	<script src="lib/bs/bootstrap.min.js" crossorigin="anonymous"></script>--->
+	<!---bootstrap 4 RTL--->
+	<script src="lib/bs/rtl/bootstrap.min.js" crossorigin="anonymous"></script>
+	
+	<!------js addons and plugins------->
+	<script src='lib/velocity/velocity.min.js'></script>
+	<script src='lib/velocity/velocity.ui.min.js'></script>
+	<script src="lib/jq-confirm/jquery-confirm.min.js" crossorigin="anonymous"></script>
+	<!--<script src="lib/nicescroll-sidebar/jquery.nicescroll.min.js" crossorigin="anonymous"></script>-->
+	<!--<script src="lib/swiper/swiper.min.js" crossorigin="anonymous"></script>-->
+	
+	<!------common js------>
+	<script src="js/sidebar.js" crossorigin="anonymous"></script>
+	<script src="js/appcomon.js" crossorigin="anonymous"></script>
+	
+	<!---this page js---->
+	<script src="js/replies.js" crossorigin="anonymous"></script>
+	
+  </body>
+</html>

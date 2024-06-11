@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Khalifa Computer Group - مجموعة خليفة للكمبيوتر">
+	<link href="te.ico" rel="shortcut icon" type="image/x-icon">
+    <!-- Bootstrap CSS 
+    <link rel="stylesheet" href="lib/bs/bootstrap.min.css" crossorigin="anonymous">-->
+	<!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="lib/bs/bootstrap.min.css" crossorigin="anonymous">
+	<!------css addons and plugins------->
+	<link rel="stylesheet" href="lib/jq-confirm/jquery-confirm.min.css" crossorigin="anonymous">
+	<!--- --------------------------------swiper---------------------------->
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.3.7/css/swiper.css" rel="stylesheet">-->
+	<link href="lib/swiper/swiper.min.css" rel="stylesheet">
+	<!------common css------>
+	<!--<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" crossorigin="anonymous">-->
+	<!---use the online fontawesome version for some icons---->
+	<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/apptheme.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/sidebar.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<!---this page css---->
+	<!---  css for  chat pics columns modal popup--->
+	<link href="css/chat_pics_columns.css" rel="stylesheet">
+	<link href="css/chat_balloon.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/chat.css" crossorigin="anonymous">
+	<script src="http://code.responsivevoice.org/responsivevoice.js?key=q1kohWr5"></script>
+    <title>تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة</title>
+  </head>
+  <body>
+    <div class="wrapperpage"><!---page wrapper-->
+	
+	
+	<!-- Pics columns Modal video player------------------------------------------>
+		<div id="video_popup_pics" class="modal fade" role="document">
+		  <div class="modal-dialog  modal-lg modal-fullwidth" >
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			 <!---modal header---->
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+			  
+			  <!---end modal header---->
+			  <!---User Guide modal body---->
+			  <div class="modal-body" style="direction:rtl;">
+			  <div class="container-fluid user_guide_container">
+			  <!----User Guide rows/sentences ----->
+			  <div class="hide_copyright"></div>
+				<video id="video_player_pop_pics" class="video_player_pop_pics" width="100%" controls autoplay onended="MoreVideos_pics()">
+				  <source src="videos/1.mp4" type="video/mp4">
+				هذا المتصفح لا يدعم تشغيل الفيديو ، يرجى استخدام متصفح الكروم
+				</video>
+			  </div>
+			  </div>
+			  <!---end modal body---->
+			  <div class="modal-footer">
+				<button type="button" id="close_fav_pop_btn" class="btn btn-danger" data-dismiss="modal">إغلاق</button>				
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	<!---end Pics columns Modal popup-------------------------------->
+	<!-- Modal video player------------------------------------------>
+		<div id="video_popup" data-backdrop="static" data-keyboard="false" class="modal  easein" tabindex="-1" data-easein="bounceIn" role="document" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered  modal-lg modal-fullwidth" >
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			 <!---modal header---->
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title" style="text-align:center;font-size:1.2em;"></h4>
+			  </div>
+			  
+			  <!---end modal header---->
+			  <!---sign language modal body---->
+			  <div class="modal-body" >
+				<div class="">
+					<!----User Guide rows/sentences ----->
+					<div class="hide_copyright"></div>
+					<video id="video_player_pop" class="video_player_pop" width="100%" controls autoplay onended="MoreVideos()">
+						<source src="" type="video/mp4">
+					هذا المتصفح لا يدعم تشغيل الفيديو ، يرجى استخدام متصفح الكروم
+					</video>
+				</div>
+			  </div>
+			  <!---end modal body---->
+			  <div class="modal-footer">
+			  <table style="width:100%;">
+			  
+			  <tr style="width:100%;">
+			  <td style="width:100%;">
+			  <div id="lab" style="width:100%;font-size:24px;margin-bottom:30px;text-align:center;">zzzz</div>
+			  </td>
+			  </tr>
+			  <tr style="width:100%;">
+		      <td style="width:100%;">
+				<button type="button" id="close_fav_pop_btn" class="btn btn-danger" data-dismiss="modal">إغلاق</button>	
+              </td>
+			 </tr>
+			 </table>				
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	<!---end Modal popup-------------------------------->
+	<!-- Modal favourits viewer------------------------------------------>
+	<div class="modal fade" id="favModal" role="dialog" >
+		<div class="modal-dialog">
+		
+		  <!-- Modal content-->
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+			  <!--<h4 class="modal-title">Modal Header</h4>-->
+			</div>
+			<div class="modal-body">
+			  <select style="width:90%; font-size:18px; font-weight:bold; height:40px !important;" id="sel2" >... الجمل المفضلة ...</select>
+			</div>
+			<div class="modal-footer">
+				<button type="button"  class="col-xs-12 col-md-3 col-lg-3 btn btn-danger" data-dismiss="modal" style="font-size: 1em;">إغلاق</button>
+				<div class="col-xs-12 col-md-3 col-lg-3"></div>
+				<button type="button" id="btnfavdialogclose" class="col-xs-6 col-md-6 col-lg-6 btn btn-primary" data-dismiss="modal" style="font-size: 1em;">اختيار الكلمة / الجملة</button>
+			 
+			</div>
+		  </div>
+		  
+		</div>
+	</div>
+  <!---end Modal popup-------------------------------->
+	<!-- Pics Columns Modal images viewer------------------------------------------>
+		<div id="images_popup" class="modal fade" role="document">
+		  <div class="modal-dialog  modal-lg modal-fullwidth" >
+
+			<!-- Modal content-->
+			<div class="modal-content">
+			 <!---modal header---->
+			  <div class="modal-header" style="display:none;">
+				<button type="button" style="font-size:2em;" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+			  
+			  <!---end modal header---->
+			  <!---User Guide modal body---->
+			  <div class="modal-body" style="direction:rtl;">
+			  <div class="container-fluid listofimages">
+			  <!----User Guide rows/sentences ----->
+			  <!----begin of images cols html content------>
+				<div class="col-12">
+	<div class="row slidercontent mainpicswrapper">
+		
+		
+		<!-- Swiper column1-->
+		<div class="col-6  swiper-container swiper-container-col1 rounded2 ">
+			<div class="swiper-container-col1 swiper-wrapper">
+				<div class="col-12 swiper-slide" id="colpic~'+i+'" >
+				
+						<div class="row">
+							<a onclick="WriteCol1Word('+1+')" class="col-12 slide_pics_div">
+								<img class="slide_pics rounded img-fluid" src = "" alt="'+picscol1[i].word+'"  />
+							</a>
+							<div class="col-9 slide_txt" onclick="WriteCol1Word('+i+')"></div>
+							<div class="col-3 slide_sign_btn">
+								<button type="button" class="btn btn-default signvideo_btn slide-icons-signvid-pics img-fluid" data-signvid="videos/chat/1.webm">	
+									<img alt="" title="ترجم للغة الاشارة"  src="imgs/signvideoicon.png"   class="rounded img-fluid">
+								</button>
+							</div>
+						</div>
+						
+						
+				</div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+		</div>
+		<!-- Swiper column2-->
+		<div class="col-6  swiper-container swiper-container-col2 rounded2">
+			<div class="swiper-container-col2 swiper-wrapper">
+				<div class=" swiper-slide" id="colpic~'+i+'" >
+				
+						<div class="col-12">
+							<a onclick="WriteCol1Word('+1+')" class="col-12 slide_pics_div">
+								<img class="slide_pics img-responsive" src = "" alt="'+picscol1[i].word+'"  />
+							</a>
+							<div class="col-9 slide_txt" onclick="WriteCol1Word('+i+')"></div>
+							<div class="col-3 slide_sign_btn">
+								<button type="button" class="btn btn-default signvideo_btn slide-icons-signvid-pics img-fluid" data-signvid="videos/chat/1.webm">	
+									<img alt="" title="ترجم للغة الاشارة"  src="imgs/signvideoicon.png"   class="rounded img-fluid">
+								</button>
+							</div>
+						</div>
+						
+						
+				</div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+		</div>
+		<!-- Swiper column3-->
+		<div class="col-4  swiper-container swiper-container-col3 rounded2 " style="display:none">
+			<div class="swiper-container-col3 swiper-wrapper">
+				<div class=" swiper-slide" id="colpic~'+i+'" >
+				
+						<div class="col-12">
+							<a onclick="WriteCol1Word('+1+')" class="col-12 slide_pics_div">
+								<img class="slide_pics img-responsive" src = "" alt="'+picscol1[i].word+'"  />
+							</a>
+							<div class="-9 slide_txt" onclick="WriteCol1Word('+i+')"></div>
+							<div class="col-3 slide_sign_btn">
+								<button type="button" class="btn btn-default signvideo_btn slide-icons-signvid-pics img-fluid" data-signvid="videos/chat/1.webm">	
+									<img alt="" title="ترجم للغة الاشارة"  src="imgs/signvideoicon.png"   class="rounded img-fluid">
+								</button>
+							</div>
+						</div>
+						
+						
+				</div>
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+		</div>
+	</div>
+	
+</div>
+<!----end inner code of images cols--->
+			  </div>
+			  </div>
+			  <!---end modal body---->
+			  <div class="modal-footer">
+				<div class="row col-12 bottomtable">
+					<div class="col-6"><input id="deaf_pics_txt" class="emm" type="text" ></div>
+					<div class="col-3"><button  class="emm  btn-info fa fa-undo" id="btnclear"></button></div>
+					<div class="col-2" style="display:none;"><button  class="emm  btn-info fa fa-sign-language" id="btnclientsend"></button></div>
+					<div class="col-3"><button  class="emm  btn-danger fa fa-thumbs-o-up" id="btnreturn"></button></div>
+				</div>					
+			  </div>
+			</div>
+
+		  </div>
+		</div>
+	<!---end Pics Columns Modal image viewer popup-------------------------------->
+	
+		<!---nav sidebar -->
+		<nav class="navbar navbar-expand navbar-dark bg-primary">
+			<a href="#menu-toggle" id="menu-toggle" class="navbar-brand">
+				<span class="navbar-toggler-icon"></span>
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsbtns" aria-controls="navbarsbtns" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="topheadertxt">
+					تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة
+			</div>
+			<div class="topheaderlogo">
+					<img src="imgs/welogoheader.png" class="headerwelogoimg">
+			</div>
+
+        </nav>
+		<div id="wrapper" class="toggled">
+			
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+               <ul class="sidebar-nav">
+                     
+                    <li class="sidebar-brand"> <a href="main.html"> الرئيسية </a> </li>
+                    <li> <a href="aboutproject.html">عن المشروع</a> </li>
+                    <li> <a href="services.html?mainserviceID=1">الخدمات</a> </li>
+                    <li> <a href="tebranches.html">الفروع</a> </li>
+                    <li> <a href="chat.html">تحدث مع الموظف</a> </li>
+                </ul>
+            </div> <!-- /#sidebar-wrapper -->
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+				<!----coool menu ---------->
+				<div class="col-12 ">
+					<div id="coolmenu" onClick="coolmenu.style.display='none'" class="col-12">
+						<a href="#" onClick="alert(this.innerText)">1</a>
+						<a href="#" onClick="alert(this.innerText)">2</a>
+						<a href="#" onClick="alert(this.innerText)">3</a>
+						<a href="#" onClick="alert(this.innerText)">4</a>
+						<a href="#" onClick="alert(this.innerText)">5</a>
+					</div>
+				</div>
+
+                <div class="container-fluid">
+                    <div class="htmlcontent chat_page">
+					<!-----loader spinner------->
+			<div id="spinloader" class="row col-12 justify-content-center align-items-center" style="height: 0px;">
+				<div class="col-12 loaderoverlay"></div>
+				<div class="col-4"></div>
+				<div class="col-4">
+					<div class="loader"></div>
+				</div>
+				<div class="col-4"></div>
+			</div>
+						<!-----------------------------HTML content to be added here--------------------------->
+						<div class="row">
+						<!--chat intro subpage---->
+							<div class="col-12  startsessionboxdiv" id="startsessionInputs">
+								<!--chat intro txt and video --->
+								<div class="col-12 d-flex justify-content-center rounded2 align-items-center chat_content_container">
+									<div class="col-3 d-flex justify-content-center align-items-center signbtn_container">
+										<button type="button" class="btn btn-default signvideo_btn img-fluid" data-signvid="videos/chat/1.webm">	
+											<img alt="" title="ترجم للغة الاشارة"  src="imgs/signvideoicon.png"   class="rounded img-fluid">
+										</button>	
+									</div>
+									<div class="col-9 d-flex justify-content-center rounded2 align-items-center chat_intro_txt">
+											هذه الصفحة تساعد الصم في التواصل مع موظف خدمة العملاء في الفروع، حيث يمكن للأصم إما كتابة الاستفسار أو الطلب على التابليت أو اختيار صور لتكوين السؤال أو الطلب المراد إذا كان الأصم لا يجيد القراءة والكتابة.<br>ويقوم الموظف بالرد على الاستفسار أو الطلب كتابة على التباليت، ويمكن للأصم ترجمته إلى لغة الاشارة.<br><br>للدخول للمحادثة مع الموظف أدخل أسمك ورقم الموبايل الخاص بك إن وجد ورقم البطاقة الشخصية.<br> ثم أضغط على أبدأ لبدء المحادثة.
+									</div>
+								</div>
+								<!---chat user info form--->
+								<div class="col-12 d-flex justify-content-center rounded2 align-items-center chat_content_container">
+									<div class="row col-12 justify-content-center align-items-center inp_title">
+										<div class="col-2 col-sm-3  justify-content-center align-items-center inp_img">
+											<img class="PicContent mx-auto d-block img-fluid" src="imgs\registeruser\uname.png" data-imgs="imgs\registeruser\uname.png">
+										</div>
+										<div class="col-4 col-sm-2  justify-content-center align-items-center inp_title">
+										الاسم الكامل :
+										</div>
+										<div class="col-6 col-sm-7  justify-content-center align-items-center inp_txt">
+											<input id="clientname"  name="clientname" class="form-control" type="text" placeholder="الاسم الكامل (ضروري)">
+										</div>
+										
+										<hr class="col-12">
+										
+										<div class="col-2 col-sm-3  justify-content-center align-items-center inp_img">
+											<img class="PicContent mx-auto d-block img-fluid" src="imgs\registeruser\umob1.png" data-imgs="imgs\registeruser\umob1.png,imgs\registeruser\umob2.png">
+										</div>
+										<div class="col-4 col-sm-2  justify-content-center align-items-center inp_title">
+											رقم المحمول :
+										</div>
+										<div class="col-6 col-sm-7  justify-content-center align-items-center inp_txt">
+											<input id="umob"  name="umob" class="form-control" type="number" placeholder="رقم الموبايل (ضروري)">
+										</div>
+										<hr class="col-12">
+										
+										<div class="col-2 col-sm-3  justify-content-center align-items-center inp_img" style="display:none;">
+											<img class="PicContent mx-auto d-block img-fluid" src="imgs\registeruser\uid.png" data-imgs="imgs\registeruser\uid.png">
+										</div>
+										<div class="col-4 col-sm-2  justify-content-center align-items-center inp_title"  style="display:none;">
+										رقم البطاقة :
+										</div>
+										<div class="col-6 col-sm-7  justify-content-center align-items-center inp_txt"  style="display:none;">
+											<input id="clientid" value="0"  name="clientid" class="form-control" type="number" placeholder="رقم البطاقة 14 رقم (غير ضروري)">
+										</div>
+										
+										<hr class="col-12"  style="display:none;">
+
+									</div>
+								</div>
+								<div class="col-12 justify-content-center align-items-center complain_done_container">
+									 <input id="btnstart"  type="button"  class="btn btn-te1 col-12"  value="ابدأ المحادثة"></input>
+								</div>
+							</div>
+							<div class="col-12 justify-content-center align-items-center chats_container" id="chats_container">
+							<!-------chat baloons block---------------------------------------------->
+							<div class="col-12 rounded2 justify-content-center align-items-center chatsboxDiv" id="chatsblockDiv">
+								<div class="chat_spacertop"></div>
+								<div class="row col-12" id="chat_baloons_div">
+								<div class="chatrow deafchatrow" >
+									<div class="bubble" style="background-color: rgb(255, 255, 255); border-color: rgb(127, 127, 127);">
+										<div class="chatdeafpic"><img src="imgs/deafpic.png" class="img-responsive"/></div><div class="chattime">12:38:32 02-12-2018</div>
+										<div class="chattext">شسيب شسيب شسيمبن شتسيمكبت شسميب تشسميبت شكسميبت شس</div>
+										<div class="chat_buttons">
+											<button class="fa fa-heart" onclick="AddToFav('شسيبش')"></button>
+											<button class="fa fa fa-sign-language" onclick="PlaySign('شسيبش')"></button>
+											<button class="fa fa-volume-up" onclick="playvoice('شسيبش')"></button>
+										</div>
+										<div class="pointer" style=""></div>
+									</div>
+								</div>
+								<div class="chatrow clerkchatrow" >
+									<div class="bubble2" style="background-color: rgb(255, 255, 255); border-color: rgb(127, 127, 127);">
+										<div class="chattime2">12:38:32 02-12-2018</div><div class="chatclerkpic"><img src="imgs/we_logo_chat.png" class="img-responsive"/></div>
+										<div class="chattext2">سيب شسيببيب يببيبيبيب ي بيبيبس ي ك مك مك مك م كم كم ك مك مك م من من من من م نم نم زن مزن م نم نم ن من م ن من من م </div>
+										<div class="chat_buttons2">
+											<button class="fa fa-heart" onclick="AddToFav('سيبسيبس')"></button>
+											<button class="fa fa fa-sign-language" onclick="PlaySign('سيبسيبس')"></button>
+										</div>
+										<div class="pointer2" style=""></div>
+									</div>
+								</div>
+								<div class="chatrow clerkchatrow" >
+									<div class="bubble2" style="background-color: rgb(255, 255, 255); border-color: rgb(127, 127, 127);">
+										<div class="chattime2">12:38:32 02-12-2018</div><div class="chatclerkpic"><img src="imgs/we_logo_chat.png" class="img-responsive"/></div>
+										<div class="chattext2">سيب شسيببيب يببيبيبيب ي بيبيبس ي ك مك مك مك م كم كم ك مك مك م من من من من م نم نم زن مزن م نم نم ن من م ن من من م </div>
+										<div class="chat_buttons2">
+											<button class="fa fa-heart" onclick="AddToFav('سيبسيبس')"></button>
+											<button class="fa fa-sign-language" onclick="PlaySign('سيبسيبس')"></button>
+										</div>
+										<div class="pointer2" style=""></div>
+									</div>
+								</div>
+								<div class="chatrow deafchatrow" >
+									<div class="bubble" style="background-color: rgb(255, 255, 255); border-color: rgb(127, 127, 127);">
+										<div class="chatdeafpic"><img src="imgs/deafpic.png" class="img-responsive"/></div><div class="chattime">12:38:32 02-12-2018</div>
+										<div class="chattext">شسيب شسيب شسيمبن شتسيمكبت شسميب تشسميبت شكسميبت شس</div>
+										<div class="chat_buttons">
+											<button class="fa fa-heart" onclick="AddToFav('شسيبش')"></button>
+											<button class="fa fa-sign-language" onclick="PlaySign('شسيبش')"></button>
+											<button class="fa fa-volume-up" onclick="playvoice('شسيبش')"></button>
+										</div>
+										<div class="pointer" style=""></div>
+									</div>
+								</div>
+								</div>
+								<div class="chat_spacertop"></div>
+								</div>
+							<!--------chat bottom inputs-------------------------------------------->
+								<div class="col-12 justify-content-center align-items-center  chatsinputsDiv" id="bottomdiv">
+									<div id="chatinputs" class="row col-12 justify-content-center align-items-center  chattable2">
+										
+										<div class="row col-6 justify-content-center align-items-center  clerk_chatinputDiv rounded2" id="">
+										<div class="col-12 justify-content-center align-items-center chatinput_title">خدمة العملاء</div>
+										<div class="row col-6 justify-content-center align-items-center ">
+											<button class="emm  fa fa-paper-plane col-4" id="btnclerksend"></button>
+											<button class="emm  fa fa-sign-language col-4" id="btnclerkcorrect"></button>
+											<button class="emm  fa fa-heart col-4" id="btnclerkfav"></button>
+										</div>
+										<div class="col-6 justify-content-center align-items-center ">
+											<input id="clerktxt" oninput="checkinputlanguage($(this))" class=" col-12 emm" type="text">
+										</div>
+										</div>
+										
+										<div class="row col-6 justify-content-center align-items-center  citizen_chatinputDiv rounded2" id="">
+										<div class="col-12 justify-content-center align-items-center chatinput_title">العميل</div>
+										<div class="col-6 justify-content-center align-items-center ">
+											<input id="clienttxt" oninput="checkinputlanguage($(this))" class="col-12  emm " type="text">
+										</div>
+										<div class="row col-6 justify-content-center align-items-center ">
+											
+											<button class=" emm   fa fa-heart col-4" id="btnclientfav"></button>
+											<button class=" emm fa fa-image col-4" id="btnpics"></button>
+											<button class=" emm  fa fa-paper-plane col-4" id="btnclientsend"></button>
+										</div>
+										</div>
+									</div>
+								</div>
+								<!--------END chat bottom inputs-------------------------------------------->
+							</div>
+							
+						</div><!----End Row--->
+						<!---------------------------END HTML content------------------------------------------>
+       		</div>
+                </div>
+            </div> <!-- /#page-content-wrapper -->
+        </div> <!---END nav sidebar -->
+		<!-- /#wrapper -->
+		
+		
+	</div><!---End page wrapper--->
+	
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="lib/jquery/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="lib/popper/popper.min.js" crossorigin="anonymous"></script>
+    <!---bootstrap 4
+	<script src="lib/bs/bootstrap.min.js" crossorigin="anonymous"></script>--->
+	<!---bootstrap 4 RTL--->
+	<script src="lib/bs/rtl/bootstrap.min.js" crossorigin="anonymous"></script>
+	
+	<!------js addons and plugins------->
+	<script src='lib/velocity/velocity.min.js'></script>
+	<script src='lib/velocity/velocity.ui.min.js'></script>
+	<script src="lib/jq-confirm/jquery-confirm.min.js" crossorigin="anonymous"></script>
+	<!--<script src="lib/nicescroll-sidebar/jquery.nicescroll.min.js" crossorigin="anonymous"></script>-->
+	<script src="lib/swiper/swiper.min.js" crossorigin="anonymous"></script>
+	
+	<!------common js------>
+	<script src="js/sidebar.js" crossorigin="anonymous"></script>
+	<script src="js/appcomon.js" crossorigin="anonymous"></script>
+	
+	<!---this page js---->
+	<script src="js/chat_pics.js"></script>
+	<script src="js/chat.js" crossorigin="anonymous"></script>
+	
+  </body>
+</html>

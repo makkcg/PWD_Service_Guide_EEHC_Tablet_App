@@ -1,0 +1,76 @@
+body {
+    background-color: black;
+}
+
+.wrapperpage {
+    text-align: center;
+    background-color: white;
+    display: none;
+    height: 100vh;
+}
+
+.wrapperpage div.row {
+    margin: 0 auto;
+}
+
+.welogo_img {
+    max-height: 400px;
+    padding-top: 5rem;
+}
+
+.footer_div {
+    max-height: 100px;
+    position: fixed;
+    width: 100%;
+    bottom: 0.1rem;
+    padding: 3.5rem 0rem;
+    background-color: #eeeeee;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.footer_txt {
+    font-size: 0.75rem;
+    background-color: white;
+    margin-top: 0.5rem;
+}
+
+.supporting_logos {
+    max-height: 70px;
+    padding-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .footer_txt {
+        font-size: 0.60rem;
+    }
+    .welogo_img {
+        max-height: 400px;
+        padding-top: 6rem;
+    }
+}
+
+@media (min-width: 1900px) {
+    .wrapperpage .logorow {
+        margin: 0 auto;
+        padding-top: 6rem;
+    }
+    .welogo_img {
+        max-height: 500px;
+        padding-top: 5rem;
+    }
+    .supporting_logos {
+        max-height: 110px;
+        padding-top: 0.0rem;
+    }
+    .footer_div {
+        max-height: 100px;
+        position: fixed;
+        width: 100%;
+        bottom: 0.1rem;
+        padding: 5.5rem 0rem;
+        background-color: #eeeeee;
+        text-align: center;
+        margin: 0 auto;
+    }
+}

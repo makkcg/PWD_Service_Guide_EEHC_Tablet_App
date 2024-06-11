@@ -1,0 +1,47 @@
+.complains_page{
+	color:#777777;
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+.complain_intro_container {
+    margin: 1rem auto;
+    background-color: #f5f5f5;
+    padding: 1rem;
+}
+.complain_intro_txt{
+	padding:1rem;
+	
+}
+.complain_form{
+	background-color: #eeeeee;
+    padding: 1rem;
+    color: #333;
+}
+.complain_done_container{
+	
+}
+.complainID{
+	display: inline;
+    font-size: 1.5rem;
+    color: green;
+    font-weight: bold;
+    padding: 0 1rem;
+}
+.comoplaindone_btn {
+    padding: 1rem 0;
+	margin: 0.5rem auto;
+}
+@media (max-width: 768px){
+	.complains_page {
+		color: #777777;
+		font-size: 0.85rem;
+		line-height: 1.5rem;
+	}
+}
+@media (min-width: 1900px){
+
+.modal-lg {
+		max-width: 1420px;
+	}
+
+}

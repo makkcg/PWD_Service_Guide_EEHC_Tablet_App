@@ -1,0 +1,317 @@
+/* 
+ * Droid Arabic Kufi (Arabic) http://www.google.com/webfonts/earlyaccess
+ */
+
+@font-face {
+    font-family: 'Droid Arabic Kufi';
+    font-style: normal;
+    font-weight: 400;
+    src: url(fonts/DroidKufi-Regular.eot?#iefix) format('embedded-opentype'), url(fonts/DroidKufi-Regular.woff) format('woff'), url(fonts/DroidKufi-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Droid Arabic Kufi';
+    font-style: normal;
+    font-weight: 700;
+    src: url(fonts/DroidKufi-Bold.eot?#iefix) format('embedded-opentype'), url(fonts/DroidKufi-Bold.woff) format('woff'), url(fonts/DroidKufi-Bold.ttf) format('truetype');
+}
+
+body {
+    font-family: 'Droid Arabic Kufi', sans-serif!important;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    text-align: right;
+}
+
+
+/***********side bar menu **********to be seperated in a file*******/
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-right: 30px !important;
+    background: #6d7fcc;
+}
+
+.wrapper {
+    display: block;
+}
+
+.rounded2 {
+    border-radius: .5rem!important;
+}
+
+
+/*******top header section****/
+
+.topheadertxt {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 14px;
+    color: white;
+    padding: 0 1em;
+}
+
+.topheaderlogo {
+    float: left;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.headerwelogoimg {
+    max-height: 45px;
+    border-radius: 6px;
+}
+
+.navbar {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+
+/***************end top header section*************/
+
+
+/*************min-width 765*****************/
+
+@media (min-width: 768px) {
+    /******header section****/
+    .topheadertxt {
+        font-size: 18px;
+    }
+    /***********END header section****/
+}
+
+.topbotPad5px {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.pagemainrow {
+    direction: rtl;
+}
+
+.headerContainer {
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    color: rgb(255, 255, 255);
+    padding: 8px 0px 8px 0;
+    background: hsl(288, 59%, 32%);
+    font-size: 1em;
+}
+
+.headerContainer .navbar-btn {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0;
+    font-size: 1.1em;
+    color: white;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.applogo {
+    margin: 0 auto;
+}
+
+
+/*****Sign video modal window***/
+
+#video_popup {
+    /*z-index: 20000 !important;*/
+    z-index: 25000 !important;
+}
+
+#video_popup_pics {
+    z-index: 25000 !important;
+}
+
+#video_popup .modal-header {
+    display: none;
+}
+
+#video_popup #close_fav_pop_btn {
+    width: 100%;
+}
+
+.modal-backdrop.show {
+    opacity: .75;
+}
+
+.modal-dialog-centered::before {
+    height: auto;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog-centered::before {
+        height: auto;
+    }
+}
+
+
+/*****END sign video modal window***/
+
+
+/****services images modal window***/
+
+#images_popup {
+    z-index: 20000 !important;
+}
+
+#images_popup #close_fav_pop_btn {
+    width: 100%;
+}
+
+#images_popup .popupimg {
+    margin: 0em auto 1em auto;
+    border-bottom: 2px solid #9E9E9E;
+    padding: 1em 0;
+}
+
+
+/*****END services images modal window***/
+
+.footerContainer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid #eee;
+    padding: 5px 0;
+    font-size: 0.75em;
+    color: white;
+    background-color: #363636 !important;
+    right: 0;
+    margin-top: 10px;
+    z-index: 100;
+}
+
+.footerContainer a {
+    color: #eee;
+}
+
+.footerContainer a:hover {
+    color: #f5f5f5;
+}
+
+.toolsbarrow {
+    text-align: center;
+    text-align: center;
+    background: #f5f5f5;
+    padding: 5px;
+    border: 1px solid #ddd;
+    margin-top: 50px;
+}
+
+.toolsbarrow div {
+    text-align: center;
+}
+
+.toolsbarrow img {
+    text-align: center;
+    max-width: 60px;
+    max-height: 40px;
+    margin: 0 auto;
+}
+
+.toolsbarrow button {
+    max-width: 70px !important;
+    max-width: 120px !important;
+    padding: 5px 6px;
+    font-size: 0.55em;
+}
+
+.middlecontainer {}
+
+.hide_copyright {
+    background: rgba(255, 255, 255, 0.9);
+    height: 60px;
+    position: absolute;
+    width: 95%;
+    bottom: 25px;
+    display: none;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #224983;
+    border-color: #227d83;
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #224983;
+    border-color: #962071;
+}
+
+.companylogo_img {
+    max-width: 100% !important;
+    max-height: 65px !important;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #dddddd;
+}
+
+
+/*******TE button*****/
+
+.btn-te1 {
+    color: #fff;
+    background-color: #6f2d91;
+    border-color: #591f77;
+}
+
+.btn-te1:hover {
+    color: #fff;
+    background-color: #962071;
+    border-color: #7d175d;
+}
+
+.btn-te1:not(:disabled):not(.disabled).active,
+.btn-te1:not(:disabled):not(.disabled):active,
+.show>.btn-te1.dropdown-toggle {
+    color: #fff;
+    background-color: #962071;
+    border-color: #7d175d;
+}
+
+.btn-te1.focus,
+.btn-te1:focus {
+    box-shadow: 0 0 0 0.2rem rgba(111, 45, 145, 0.26);
+}
+
+
+/****for swipers****/
+
+@media (min-width: 1900px) {
+    .swiper-pagination-bullet {
+        width: 20px !important;
+        height: 20px !important;
+    }
+}

@@ -1,0 +1,220 @@
+.services_swiper_container {
+    text-align: center;
+    color: white;
+    padding: 1em 0;
+}
+
+
+/***services screen***/
+
+.services_swiper_container {
+    color: white !important;
+    padding-top: 1em !important;
+}
+
+
+/**********services swiper****/
+
+#services_swiper .swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#services_swiper .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+#services_swiper .ContentOfentities {
+	background-color:#1f6acd;
+   /* background-color: #3a2096;*/
+    /*background-color:#682c72;*/
+    color: whitesmoke;
+    padding: 1rem;
+    text-align: center;
+    max-height: 520px;
+}
+
+#services_swiper .service-img-container {
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem auto;
+    max-height: 490px;
+}
+
+#services_swiper .slide-icons-signvid {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0;
+    -webkit-appearance: none;
+}
+
+#services_swiper .signbtn_container {
+    max-height: 80px;
+}
+
+#services_swiper .service_slide_txt_container {
+    /*overflow-x:auto;*/
+    max-height: 80px;
+}
+
+#services_swiper .service_slide_txt {
+    text-align: right;
+    font-size: 0.8em;
+    line-height: 1.75em;
+    /*display:none;*/
+    height: 100%;
+}
+
+
+/********************************/
+
+#services_swiper .service_slide_txt_container {
+    max-height: 130px;
+}
+
+#services_swiper .ContentOfentities {
+    max-height: 600px;
+    min-height: 500px;
+}
+
+#services_swiper .service_slide_txt {
+    text-align: right;
+}
+
+.slimScrollDiv {
+    max-height: 90px;
+}
+
+.service-img-container img {
+    max-height: 250px;
+}
+
+.swiper-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding-bottom: 4rem;
+    z-index: 1;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: 0px;
+    background-color: #962071;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0;
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: white;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    background-color: #962071;
+    /* z-index: 100000; */
+    border-radius: 0.25rem;
+}
+
+
+/**********************************/
+
+@media (max-width: 768px) {
+    .services_swiper_container {
+        text-align: center;
+        color: white;
+        padding: .5rem 0;
+    }
+    #services_swiper .service_slide_txt_container {
+        /* overflow-x: auto; */
+        max-height: 110px;
+    }
+    #services_swiper .signbtn_container {
+        max-height: 120px;
+    }
+    .service-img-container img {
+        max-height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    #services_swiper .service_slide_txt {
+        text-align: right;
+        font-size: 0.8em;
+        line-height: 1.75em;
+        text-align: right;
+        height: 100%;
+    }
+    #services_swiper .ContentOfentities {
+        max-height: 480px;
+        min-height: 480px;
+    }
+    .swiper-container {
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        list-style: none;
+        padding-bottom: 1rem;
+        z-index: 1;
+    }
+}
+
+@media (min-width: 1900px) {
+    .modal-lg {
+        max-width: 1420px;
+    }
+    #services_swiper .service_slide_txt_container {
+        /* overflow-x: auto; */
+        max-height: 200px;
+    }
+    #services_swiper .ContentOfentities {
+        color: whitesmoke;
+        padding: 1rem;
+        text-align: center;
+        max-height: 1000px;
+        min-height: 850px;
+    }
+    .services_swiper_container {
+        color: white !important;
+        padding-top: 4em !important;
+    }
+    #services_swiper .service_slide_txt {
+        text-align: right;
+        font-size: 1em;
+        line-height: 1.75em;
+        text-align: right;
+        /* margin-top: 3.25em; */
+        display: none;
+        height: 100%;
+    }
+    #services_swiper .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        min-width: 300px;
+        max-width: 800px;
+    }
+    #services_swiper .service-img-container {
+        background-color: white;
+        padding: 1rem;
+        margin: 2rem auto;
+        max-height: 490px;
+    }
+    .service-img-container img {
+        max-height: 250px;
+    }
+}

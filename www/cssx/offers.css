@@ -1,0 +1,29 @@
+.offers_page{
+	color:#777777;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	text-align:center;
+}
+.offers_content_container {
+	margin: 1rem auto;
+    padding: 1rem;
+    /* height: 50vh; */
+    min-height: 250px;
+    padding-top: 14%;
+    line-height: 3rem;
+}
+
+@media (max-width: 768px){
+	.offers_page {
+		color: #777777;
+		font-size: 0.85rem;
+		line-height: 1.5rem;
+	}
+}
+@media (min-width: 1900px){
+
+.modal-lg {
+		max-width: 1420px;
+	}
+
+}

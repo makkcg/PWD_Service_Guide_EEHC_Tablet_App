@@ -1,0 +1,31 @@
+@media (min-width: 1300px){
+	
+	
+	
+}
+@media only screen and (max-height:650px){
+.modal-dialog {
+    width: 75%;
+    margin: 30px auto;
+	
+}
+
+.h2, h2 {
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.swiper-slide {
+	min-height: 300px;
+    font-size: 0.80em;
+    font-weight: 600;
+}
+.PicContent {
+    max-height: 90px;
+}
+.modal-dialog {
+    width: 75%;
+    margin: 30px auto;
+	
+}
+}

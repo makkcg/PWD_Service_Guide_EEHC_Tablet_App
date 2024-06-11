@@ -1,0 +1,132 @@
+.tebranches_page{
+	text-align:center;
+	color:white;
+	padding: 1em 0;
+}
+/***main screen intro section***/
+.impNo_intro_container {
+	color:#777777;
+    margin: 1rem auto;
+    background-color: #f5f5f5;
+    padding: 1rem 0;
+}
+.impNo_intro_txt{
+	color: #777777;
+    padding: 1rem;
+    text-align: justify;
+    padding-left: 2rem;
+}
+/***********/
+.importantNo_rows_container {
+    margin: 1rem auto;
+    background-color: #dddddd;
+    padding: 0.75rem 0;
+	
+}
+.importantNo_rows_container_inner_head {
+    font-weight: bold;
+    /*width: 100%;*/
+    font-size: 0.9rem;
+	color:#777777;
+	background-color: #dddddd;
+	margin: 0 auto;
+	border-bottom: 1px solid #dddddd;	
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+}
+.importantNo_rows_container_inner {
+    font-weight: bold;
+    /*width: 100%;*/
+    font-size: 0.9rem;
+	color:#777777;
+	margin: 0 auto;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+}
+.inp_img .PicContent {
+    max-height: 50px;
+	margin: .5rem auto;
+}
+.left_border{
+	border-left: 1px solid #dddddd;
+}
+.sign_btn_small_img{
+	    max-height: 35px;
+}
+.hr_row{
+	width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.overlaybox {
+    display: block;
+    min-height: 200px;
+    border-radius: 16px 16px 0px 0px;
+	padding: 1em;
+}
+
+/****tebranches css ****/
+.sel_gov_dd{
+	min-height: 3rem;
+}
+.imgpadding{
+	padding:1rem;
+}
+.branch_row {
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+.tablecontainer{
+	    overflow-x: auto;
+		overflow-y: hidden;
+	}
+	.importantNo_rows_container_inner_head {
+		min-width: 1024px;
+	}
+	.codes_rows{
+		min-width: 1024px;
+	}
+@media (max-width: 768px){
+	.importantNo_rows_container_inner_head {
+		font-size: 0.7rem;
+		min-width: 1024px;
+	}
+	.codes_rows{
+		min-width: 1024px;
+	}
+	
+	.importantNo_rows_container_inner {
+		font-size: 0.7rem;	
+	}
+	.imgpadding {
+		padding: 0;
+		min-width: 26px;
+	}
+	.tablecontainer{
+	    overflow-x: auto;
+		overflow-y: hidden;
+	}
+}
+
+@media (min-width: 1900px){
+	.tebranches_page {
+    text-align: center;
+    color: white;
+    padding: 1em 0;
+    padding-top: 2rem;
+	}
+	.overlaybox {
+		display: block;
+		min-height: 200px;
+		border-radius: 16px 16px 0px 0px;
+		padding: 5.5em 0;
+	}
+	.modal-lg {
+		max-width: 1420px;
+	}
+	
+}
+
