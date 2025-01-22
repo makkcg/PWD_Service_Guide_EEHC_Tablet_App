@@ -34,22 +34,13 @@ function deafserviceapp_controller() {
 
 	  self.datafolderpath=datafolderpath;
 	  self.dataJSONpath=jsonpath;
-	 /*  var obj=jsondataobject
+	  var obj=jsondataobject
 	  ////load datajson file into DataJSON property
-		
+
 			self.DataJSON=obj;
-			self.number_of_branches=obj.data.allservices.length
-			self.number_of_services=obj.data.foundation.branches.length
-			self.getDataJson() */
-			
-			////load datajson file into DataJSON property
-	  $.getJSON(jsonpath, function(obj) {
-			self.DataJSON=obj;
-			//console.log(self.DataJSON);
 			self.number_of_branches=obj.data.allservices.length
 			self.number_of_services=obj.data.foundation.branches.length
 			self.getDataJson()
-		});
 
   }
   this.getDataJson = function(){

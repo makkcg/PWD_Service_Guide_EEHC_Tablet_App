@@ -29,30 +29,23 @@
 
 
     <!---this page css---->
-    <link rel="stylesheet" href="css/services.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/subservices.css" crossorigin="anonymous">
 
     <title>تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة (صم ومكفوفين)</title>
-
-	 <style>
-body{ font-family: 'Droid Arabic Kufi', sans-serif!important; direction:rtl;
-background-image: url('imgs/backgroundpattern.png'); /* Path to your image */
-            background-repeat: no-repeat; /* Prevent tiling */
-            background-position: center center; /* Center horizontally and vertically */
-            background-size: contain; /* Ensure the image fits within the viewport without cropping */
-            
-}
-p{
+<style>
+body{ font-family: 'Droid Arabic Kufi', sans-serif!important; direction:rtl;}
+	p{
 color:#FFFFFF !important;
     font-family: 'Droid Arabic Kufi', sans-serif!important;
 }
 </style>
 </head>
 
-<body style="direction:rtl;">
+<body style="direction:rtl;"> 
     <div class="wrapperpage">
         <!---page wrapper-->
         <!-- Modal video player------------------------------------------>
-        <div id="video_popup"  data-backdrop="static" data-keyboard="false" class="modal  easein" tabindex="-1" data-easein="bounceIn" role="document" aria-hidden="true">
+        <div id="video_popup" class="modal  easein" tabindex="-1" data-easein="bounceIn" role="document" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered  modal-lg modal-fullwidth">
 
                 <!-- Modal content-->
@@ -124,7 +117,6 @@ color:#FFFFFF !important;
 
             <div class="topheadertxt">
                تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة
-            </div>
             <div class="topheaderlogo">
                 <img src="imgs/elc logo.png" class="headerwelogoimg">
             </div>
@@ -134,13 +126,12 @@ color:#FFFFFF !important;
             <!-- Sidebar -->
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
-                  <li class="sidebar-brand"> <a href="main.html"> الرئيسية </a> </li>
+                     <li class="sidebar-brand"> <a href="main.html"> الرئيسية </a> </li>
                     <li> <a href="aboutproject.html">عن المشروع</a> </li>
                     <li> <a href="services.html?mainserviceID=1">الخدمات</a> </li>
-                   
-                    <li> <a href="tebranches.html">الفروع</a> </li>
-                    <li> <a href="chat.html">تحدث مع الموظف</a> </li>                   
-				   <!--<li> <a href="otherdeafapps.html">برامج اخرى لذوي الأعاقة</a> </li>-->
+                   <li> <a href="tebranches.html">الفروع</a> </li>
+                    <!--<li> <a href="#">ارقام خدمة العملاء</a> </li>-->
+                  <li> <a href="chat.html">تحدث مع الموظف</a> </li>  
                 </ul>
             </div>
             <!-- /#sidebar-wrapper -->
@@ -184,12 +175,11 @@ color:#FFFFFF !important;
 
 
     </div>
-	<audio controls id="audcont" autoplay style="display:none;">
+    <!---End page wrapper--->
+    <audio controls id="audcont" autoplay style="display:none;">
 	  <source src=""  type="audio/mpeg">
 
 	</audio>
-    <!---End page wrapper--->
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="lib/jquery/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
@@ -211,8 +201,8 @@ color:#FFFFFF !important;
     <script src="js/appcomon.js" crossorigin="anonymous"></script>
 
     <!---this page js---->
-    <script src="js/services.js" crossorigin="anonymous"></script>
-   
+    <script src="js/subservices.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

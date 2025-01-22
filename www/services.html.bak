@@ -34,13 +34,7 @@
     <title>تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة (صم ومكفوفين)</title>
 
 	 <style>
-body{ font-family: 'Droid Arabic Kufi', sans-serif!important; direction:rtl;
-background-image: url('imgs/backgroundpattern.png'); /* Path to your image */
-            background-repeat: no-repeat; /* Prevent tiling */
-            background-position: center center; /* Center horizontally and vertically */
-            background-size: contain; /* Ensure the image fits within the viewport without cropping */
-            
-}
+body{ font-family: 'Droid Arabic Kufi', sans-serif!important; direction:rtl;}
 p{
 color:#FFFFFF !important;
     font-family: 'Droid Arabic Kufi', sans-serif!important;

@@ -37,16 +37,6 @@
 
     <title>تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة (صم ومكفوفين)</title>
 	<script src="http://code.responsivevoice.org/responsivevoice.js?key=q1kohWr5"></script>
-	<style>
-	body{
-	direction:rtl;
-	background-image: url('imgs/backgroundpattern.png'); /* Path to your image */
-            background-repeat: no-repeat; /* Prevent tiling */
-            background-position: center center; /* Center horizontally and vertically */
-            background-size: contain; /* Ensure the image fits within the viewport without cropping */
-            
-	}
-	</style>
 </head>
 
 <body style="direction:rtl;">

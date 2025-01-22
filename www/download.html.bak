@@ -19,13 +19,7 @@
 		<script src="js/download.js"></script>
 		<style>
 		body{
-			padding:10px;
-			background-image: url('imgs/backgroundpattern.png'); /* Path to your image */
-            background-repeat: no-repeat; /* Prevent tiling */
-            background-position: center center; /* Center horizontally and vertically */
-            background-size: contain; /* Ensure the image fits within the viewport without cropping */
-            
-			height:100%;
+		padding:10px;
 		}
 		.row{
 		margin:10px;
@@ -50,7 +44,7 @@
 <div id="divalert" class="col-xs-12 col-sm-12 col-md-12 col-md-12 col-lg-12 well" >
   <!-- <h3>إختر الصوت الذي تريد تحميله</h3>  -->
   <br>
-	<div class="row topmessage">
+	<div class="row">
 	<!-- <div id="divopt" class="col-xs-12 col-sm-12 col-md-12 col-md-12 col-lg-12">
 		
 		<div class=" rad ui-radio "><input class=" col-xs-1 col-sm-1 col-md-1 col-md-1 col-lg-1" type="radio" id="optboy" name="optradio"  ><label class="col-xs-2 col-sm-2 col-md-2 col-md-2 col-lg-2 optionslabel ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-radio-on"><i class="fa fa-male  fa-stack-1x fa-settings"> ولد </i></label></div>

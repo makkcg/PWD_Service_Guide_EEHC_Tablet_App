@@ -188,9 +188,9 @@ $(document).ready(function(e) {
 		//sendClerkMessage();
 		if($("#clerktxt").val()!="") {
 			correctFlag=true; 
-			//correct($("#clerktxt").val());
+			correct($("#clerktxt").val());
 				
-				sendClerkMessage();
+				//sendClerkMessage();
 		}
 	});
 	
@@ -231,7 +231,7 @@ $(document).ready(function(e) {
     });
 	
 	$(document).on('click', '#btnclerkcorrect',function(e){
-        if($("#clerktxt").val()!="")  PlaySign($("#clerktxt").val());
+        if($("#clerktxt").val()!="")  correct($("#clerktxt").val());
     });
 	
 	$(document).on('click', '#btnclientfav',function(e){
@@ -515,36 +515,48 @@ function CorrectBack(data){
 	var alts="";
 	var windex="0";
 
-	for(var i=0;i<data.length;i++)
+	for(var i=0;i<data.words.length;i++)
 	{
 		//if(data.words[i]["status"]=="Found")
 
 		//{
 			if(words==""){ 
-			               words=data[i].Vocalized;
-						   console.log(words)
+			               words=data.words[j]["word"];
 			               var altsss="";
 						   
 
 
-						   if(1) 
-							   altsss=data[i].Vocalized.toString();
+						   if(data.words[j]["alternates"].length>0) 
+
+
+
+
+
+
+
+
+							   altsss=data.words[j]["alternates"].toString();
+
+
+
+
+
 						   else 
-							   altsss=data[i].Vocalized;
+							   altsss=data.words[j]["word"];
 			               alts=altsss;
 		                 }
 						 
 			else { 
 			
-			       words=words+"~"+data[i].Vocalized;
+			       words=words+"~"+data.words[j]["word"];
 				   var altsss="";
 						   
-				   if(1) 
+				   if(data.words[j]["alternates"].length>0) 
 
 
-				   altsss=data[i].Vocalized.toString();
+				   altsss=data.words[j]["alternates"].toString();
 				   else 
-				   altsss=data[i].Vocalized;
+				   altsss=data.words[j]["word"];
 			       alts=alts+"~"+altsss;
 			     }
 			j++;
@@ -560,7 +572,7 @@ function CorrectBack(data){
 			
 	
 		///show coolmenu with alternatives of the entered text to be corrected
-		//showAlts();
+		showAlts();
 		}else if(correctFlag){
 			
 			if($("#clienttxt").val()!=""){
@@ -578,74 +590,15 @@ function correct(str)
 	localStorage.setItem("words","");
 	localStorage.setItem("alts","");
 	localStorage.setItem("windex","");
-	
 
-    // Call the correction web service
-    showloader();
-    $.ajax({
-        url: signdic_services_server_path, // Update the service path
-        method: 'POST', // Use POST for better security and to handle larger data
-        data: JSON.stringify({
-            parag: str,
-            translator: 1,
-            enable_smart_number_reader: 1,
-            enable_grammer: 0,
-            enable_auto_translate: 0,
-            enable_formation: 0,
-            enable_translate_letters: 0
-        }),
-        contentType: 'application/json', // Specify content type for JSON
-        dataType: 'json', // Expect JSON response
-        headers: {
-            'X-Security-Key': PWDService_XSecurityKey // Security key header
-        },
-        success: function(response) {
-            console.log("Success response:", response);
-            $("#spinloader").hide();
-			var listofvideos = extractWcodeAndVocalized(response)
-			
-            CorrectBack(listofvideos); // Process the response using the CorrectBack function
-        },
-        timeout: 10000, // Set timeout to 10 seconds
-        error: function(jqXHR, textStatus, errorThrown) {
-            $("#spinloader").hide();
-            if (textStatus === "timeout") {
-                let title = "خطأ";
-                let body = "لايوجد اتصال بالانترنت , او توجد مشكلة في الاتصال بالخادم";
-                validationerror_alert(title, body);
-            } else {
-                console.error("Error response:", errorThrown);
-                let title = "خطأ";
-                let body = "حدث خطأ أثناء الاتصال بالخادم";
-                validationerror_alert(title, body);
-            }
-        }
-    }).fail(function() {
-        $("#spinloader").hide();
-        let title = "خطأ";
-        let body = "لايوجد اتصال بالانترنت , او توجد مشكلة في الاتصال بالخادم";
-        validationerror_alert(title, body);
-    });
-
-
-	
-	/* $.ajax({
-	url:  signdic_services_server_path,
-	data: {
-			parag: str,
-			translator: 1,
-			enable_smart_number_reader: 1,
-			enable_grammer: 0,
-			enable_auto_translate: 0,
-			enable_formation: 0,
-			enable_translate_letters: 1
-		},
+	///call the correction webservice
+	showloader()
+	$.ajax({
+	url:  "http://169.50.5.146/deaf_service_apps/services/"+"phrase2.php",
+	data: {val1:str},
 	dataType: 'jsonp',
 	jsonp: 'callback',
 	jsonpCallback: 'CorrectBack',
-	headers: {
-			'X-Security-Key': PWDService_XSecurityKey // Added security key header
-		},
 	success: function(){
 						//alert("success");
 						$("#spinloader").hide();
@@ -665,7 +618,7 @@ function correct(str)
 		title="خطأ"
 		body="لايوجد اتصال بالانترنت , او توجد مشكلة في الاتصال بالخادم";
 		validationerror_alert(title,body);
-	}); */
+	});;
 
 
 }
@@ -767,9 +720,8 @@ function AddedBack(data)
 ///////////////////////////////////////////////////////////
 function playvoice(str)
 {
-/* responsiveVoice.setDefaultVoice("Arabic Female");
-responsiveVoice.speak(str); */
-responsiveVoice.speak(str,"Arabic Female");
+responsiveVoice.setDefaultVoice("Arabic Female");
+responsiveVoice.speak(str);
 
 }
 /////////////////////////////////////////////////
@@ -924,7 +876,6 @@ function sendClientMessage(){
 	$.ajax({
 	url:  serverservicespath+'deafservice2.php',
 	data: {order:3, val1:cname, val2:talkid, val3:$("#clienttxt").val(), val4:clerk  },
-	contentType: 'application/json; charset=utf-8',
 	dataType: 'jsonp',
 	jsonp: 'callback',
 	jsonpCallback: 'ChatCallBack_client',
@@ -951,10 +902,7 @@ function sendClientMessage(){
 }
 
 /////////////////////////////////////////
-let chatbackdata
 function ChatCallBack_client(data){
-	chatbackdata=data;
-	console.log("chat call back client "+data)
 	AddChatBaloon(data.txt,1);
 }
 
@@ -1008,7 +956,7 @@ function ChatCallBack_clerk(data){
 }
 ////////////////////////////////////////////////////////
 function AddChatBaloon(txt,client1_clerk2){
-	/* var temp='';
+	var temp='';
 	var ss=[];
 	if(txt.indexOf(",")>0){
 		ss=txt.split(","); 
@@ -1016,28 +964,22 @@ function AddChatBaloon(txt,client1_clerk2){
 		ss[0]=txt;
 	}
 	var lastmsg=ss[ss.length-1];
-	var lastmsg_parts_arr=lastmsg.split("~"); */
-	var temp=''
-	var allchatsArr = JSON.parse(txt);
-	var lastChetmsgObj = allchatsArr[allchatsArr.length-1];
-	var clienttxt = lastChetmsgObj.client
-	var clerktxt = lastChetmsgObj.clerk
-	var chattime = lastChetmsgObj.chat_time
+	var lastmsg_parts_arr=lastmsg.split("~");
 	
 	///if first part in the last msg is "---" its clerk msg
-	if(clienttxt=="---"){
+	if(lastmsg_parts_arr[0]=="---"){
 		
 		/*txt='<div class="col-xs-12 col-md-12 col-lg-12 chatrow clerkchatrow"><div class="bubble2" style="background-color: rgb(255, 255, 255); border-color: rgb(127, 127, 127);"><div class="chatclerkpic"><img src="img/clerkpic.png" class="img-responsive"></div><div class="chattime2">'+properDate(lastmsg_parts_arr[2])+'</div><div class="chattext2">'+lastmsg_parts_arr[1]+'</div><div class="chat_buttons2"><button class="btn-warning glyphicon glyphicon-heart-empty" onclick="AddToFav(\''+lastmsg_parts_arr[1]+'\')"></button><button class="btn-info glyphicon glyphicon-thumbs-up" onclick="PlaySign('+'\''+lastmsg_parts_arr[1]+'\''+')"></button></div><div class="pointer2" style=""></div></div></div>';
 		**/
-		txt='<div class="col-12 chatrow clerkchatrow" ><div class="bubble2" style="background-color: rgb(255, 255, 255); border-color: rgb(127, 127, 127);"><div class="chattime2">'+properDate(chattime)+'</div><div class="chatclerkpic"><img src="imgs/we_logo_chat.png" class="img-responsive"/></div><div class="chattext2">'+clerktxt+'</div><div class="chat_buttons2"><button class="fa fa-heart" onclick="AddToFav(\''+clerktxt+'\')"></button><button class="fa fa-sign-language" onclick="PlaySign('+'\''+clerktxt+'\''+')"></button></div><div class="pointer2" style=""></div></div></div>'
+		txt='<div class="col-12 chatrow clerkchatrow" ><div class="bubble2" style="background-color: rgb(255, 255, 255); border-color: rgb(127, 127, 127);"><div class="chattime2">'+properDate(lastmsg_parts_arr[2])+'</div><div class="chatclerkpic"><img src="imgs/we_logo_chat.png" class="img-responsive"/></div><div class="chattext2">'+lastmsg_parts_arr[1]+'</div><div class="chat_buttons2"><button class="fa fa-heart" onclick="AddToFav(\''+lastmsg_parts_arr[1]+'\')"></button><button class="fa fa-sign-language" onclick="PlaySign('+'\''+lastmsg_parts_arr[1]+'\''+')"></button></div><div class="pointer2" style=""></div></div></div>'
 		
 		temp=temp+txt;
 		
-	}else if(clerktxt=="---"){///if second part in the last msg is "---" its deaf client msg
+	}else if(lastmsg_parts_arr[1]=="---"){///if second part in the last msg is "---" its deaf client msg
 	
 		/*txt='<div class="col-xs-12 col-md-12 col-lg-12 chatrow deafchatrow"><div class="bubble" style="background-color: rgb(255, 255, 255); border-color: rgb(127, 127, 127);"><div class="chatdeafpic"><img src="img/deafpic.png" class="img-responsive"></div><div class="chattime">'+properDate(lastmsg_parts_arr[2])+'</div><div class="chattext">'+lastmsg_parts_arr[0]+'</div><div class="chat_buttons"><button class="btn-warning glyphicon glyphicon-heart-empty" onclick="AddToFav('+'\''+lastmsg_parts_arr[0]+'\''+')"></button><button class="btn-info glyphicon glyphicon-thumbs-up" onclick="PlaySign('+'\''+lastmsg_parts_arr[0]+'\''+')"></button><button class="btn-danger glyphicon glyphicon-volume-up" onclick="playvoice('+'\''+lastmsg_parts_arr[0]+'\''+')"></button></div><div class="pointer" style=""></div></div></div>';
 		*/
-		txt='<div class="col-12 chatrow deafchatrow" ><div class="bubble" style="background-color: rgb(255, 255, 255); border-color: rgb(127, 127, 127);"><div class="chatdeafpic"><img src="imgs/deafpic.png" class="img-responsive"/></div><div class="chattime">'+properDate(chattime)+'</div><div class="chattext">'+clienttxt+'</div><div class="chat_buttons"><button class="fa fa-heart" onclick="AddToFav('+'\''+clienttxt+'\''+')"></button><button class="fa fa-sign-language" onclick="PlaySign('+'\''+clienttxt+'\''+')"></button><button class="fa fa-volume-up" onclick="playvoice('+'\''+clienttxt+'\''+')"></button></div><div class="pointer" style=""></div></div></div>'
+		txt='<div class="col-12 chatrow deafchatrow" ><div class="bubble" style="background-color: rgb(255, 255, 255); border-color: rgb(127, 127, 127);"><div class="chatdeafpic"><img src="imgs/deafpic.png" class="img-responsive"/></div><div class="chattime">'+properDate(lastmsg_parts_arr[2])+'</div><div class="chattext">'+lastmsg_parts_arr[0]+'</div><div class="chat_buttons"><button class="fa fa-heart" onclick="AddToFav('+'\''+lastmsg_parts_arr[0]+'\''+')"></button><button class="fa fa-sign-language" onclick="PlaySign('+'\''+lastmsg_parts_arr[0]+'\''+')"></button><button class="fa fa-volume-up" onclick="playvoice('+'\''+lastmsg_parts_arr[0]+'\''+')"></button></div><div class="pointer" style=""></div></div></div>'
 		temp=temp + txt;
 	}
 	
@@ -1049,97 +991,12 @@ function AddChatBaloon(txt,client1_clerk2){
  
  
 //////////////////////////////////////////////////////////////////////////
-///function to extract array of videolinks and words from the response 
-function extractWcodeAndVocalized(response) {
-    // Flatten the nested structure to retrieve all objects
-    const flatObjects = [];
-    
-    // Recursive function to extract objects
-    function extractObjects(arr) {
-        arr.forEach(item => {
-            if (Array.isArray(item)) {
-                extractObjects(item); // Recursive call for nested arrays
-            } else if (typeof item === 'object' && item !== null) {
-                flatObjects.push(item); // Push objects into the flat list
-            }
-        });
-    }
-
-    // Start extraction from the main response
-    extractObjects(response);
-
-    // Extract Wcode and Vocalized values
-    const results = flatObjects.map(obj => ({
-        Wcode: obj.Wcode || null,
-        Vocalized: obj.Vocalized || null
-    }));
-
-    // Return the results
-    return results;
-}
 function PlaySign(str){
 	var sss=str;
 	for (var i=0;i<200;i++) sss=sss.replace("  "," ");
 	for (var i=0;i<200;i++) sss=sss.replace(" ",",");
 	showloader()
-	
-	let responseData= [];
-		
 	$.ajax({
-		url: signdic_services_server_path,
-		method: "POST", // Use the correct HTTP method
-		data: JSON.stringify({
-			parag: str,
-			translator: 1,
-			enable_smart_number_reader: 1,
-			enable_grammer: 0,
-			enable_auto_translate: 0,
-			enable_formation: 0,
-			enable_translate_letters: 0
-		}),
-		headers: {
-			'X-Security-Key': PWDService_XSecurityKey,
-			'Content-Type': 'application/json; charset=utf-8' // Specify UTF-8 charset for request
-		},
-		dataType: 'json',
-		success: function(response) {
-			// Decode the Arabic response to display correctly
-			console.log("Response received:", response);
-
-			if (response) {
-				responseData = response
-				console.log("Operation was successful:", response);
-				//create array of videos and words 
-				var listofvideos = extractWcodeAndVocalized(responseData)
-				StoreVideoPaths(listofvideos)
-				//$("#responseContainer").text(response.data); // Display response in an HTML element
-			} else {
-				console.warn("Unexpected response format:", response);
-				
-				
-				responseData = response;
-			}
-
-			$("#spinloader").hide();
-		},
-		timeout: 10000,
-		error: function(jqXHR, textStatus, errorThrown) {
-			$("#spinloader").hide();
-			let title = "خطأ";
-			let body = textStatus === "timeout" ? 
-				"لايوجد اتصال بالانترنت , او توجد مشكلة في الاتصال بالخادم" : 
-				`خطأ غير متوقع: ${errorThrown}`;
-			validationerror_alert(title, body);
-			console.error("AJAX Error:", textStatus, errorThrown);
-		}
-	}).fail(function() {
-		$("#spinloader").hide();
-		let title = "خطأ";
-		let body = "لايوجد اتصال بالانترنت , او توجد مشكلة في الاتصال بالخادم";
-		validationerror_alert(title, body);
-	});
-
-	/* $.ajax({
 	url:  signdic_services_server_path+'videospell.php',
 	data: { val1:sss},
 	dataType: 'jsonp',
@@ -1164,20 +1021,20 @@ function PlaySign(str){
 		title="خطأ"
 		body="لايوجد اتصال بالانترنت , او توجد مشكلة في الاتصال بالخادم";
 		validationerror_alert(title,body);
-	});; */
+	});;
 }
  ////////////////////////////////////////////////////////////////////////////
 function StoreVideoPaths(data){
 	var temp="";
 	var tex="";
-	for(var i=0; i<data.length;i++){
+	for(var i=0; i<data.videos.length;i++){
 	  
 		if(temp==""){
-			temp=data[i].Wcode;
-			tex=  data[i].Vocalized;
+			temp=data.videos[i]["vpath"];
+			tex=  data.videos[i]["txt"];
 		}else{
-			temp=temp+"~"+data[i].Wcode;
-	        tex= tex + "~" + data[i].Vocalized;
+			temp=temp+"~"+data.videos[i]["vpath"];
+	        tex= tex + "~" + data.videos[i]["txt"]; 
 	    }
 	}
 	localStorage.setItem("vapath",temp);

@@ -25,11 +25,6 @@
   body
 {
   background-color: #fcfcfc;
-  background-image: url('imgs/backgroundpattern.png'); /* Path to your image */
-            background-repeat: no-repeat; /* Prevent tiling */
-            background-position: center center; /* Center horizontally and vertically */
-            background-size: contain; /* Ensure the image fits within the viewport without cropping */
-           
 }
 .center-div
 {

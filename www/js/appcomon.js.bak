@@ -1,19 +1,16 @@
 /************application common functions **************/
 /****global vars***/////global variable for the data folder path 
-var signdic_services_server_path="https://signapiv4.kcgpwdapi.org/public/api/sep_ideom";
-var PWDService_XSecurityKey="678c047ca29ea";
+var signdic_services_server_path="http://169.50.5.146/deaf_service_apps/services/";
 var apptype="androidTab";/****Android_online ,IOS_online, desktop, androidTab*/
-var timetostartapp=500;
+var timetostartapp=300;
 //var serverdomainNpath="https://weaccessibility.com/";
 //var serverdomainNpath="https://10.19.136.100/";
 //var serverdomainNpath="https://kcgserver.com/tablet/";
-//var serverdomainNpath="http://eehcaccessibility.com/tablet/";//2024
-var serverpublicappURL = "https://accessibility.eehc.gov.eg/public/";
-var serverdomainNpath="https://accessibility.eehc.gov.eg/public/uploads/tablet/";// updated 1/2025
+var serverdomainNpath="http://eehcaccessibility.com/tablet/";
 var serverservicespath=serverdomainNpath+"services/";
 var servercomplainservicepath=serverdomainNpath+"mobileapp/data/complains/";
 var serverrepliesservicepath=serverdomainNpath+"mobileapp/data/replies/";
-var onlinedatapath=serverpublicappURL+"uploads/";
+var onlinedatapath=serverdomainNpath+"backend/data/";
 var originSource=""
 var statistics_source=""
 var aud=new Audio('');
@@ -44,7 +41,6 @@ if(apptype=="Android_online" || apptype=="IOS_online"){
 		localStorage.setItem("statistics_source",statistics_source)
 	}
 	$('<script src="'+offlinedatapath+'dbd.js" crossorigin="anonymous"></script>').appendTo(document.body);
-	///////////////////////tablet ///////////////
 }else if(apptype=="androidTab"){ /****use this for loading the dbd.js for android AND desktop app***/
 	originSource="AndroidTablet"
 	statistics_source="tablet"
@@ -54,7 +50,6 @@ if(apptype=="Android_online" || apptype=="IOS_online"){
 	/*SETUP///////////////////////////////////////////////////////////////////////////////////////////
 	////////remove the localstorage key setter for localstorage (it shoud be in Android after downloading and unzipping the files)*/
 	//localStorage.setItem("datafolderpath",offlinedatapath)
-	
 }else if(apptype=="desktop"){
 	originSource="Desktop"
 	statistics_source="web"
@@ -120,80 +115,12 @@ function GetURLParameter(sParam){
     }
 }
 /**********************************views and statistics functions*******************************************/
-let statsResponse=[];
-function save_send_views() {
-    // Retrieve views data from localStorage
-    const statistics_source = localStorage.getItem("statistics_source");
-    const views_obj_arr = JSON.parse(localStorage.getItem("views")) || [];
-
-    //console.log("Views object in localStorage before saving:", views_obj_arr);
-
-    if (views_obj_arr.length > 0) {
-        // Prepare the data to send in a single request
-        const requestData = views_obj_arr.map(item => ({
-            srid: item.srid,
-            subsrid: item.subsrid,
-            subsubsrid: item.subsubsrid,
-            views: item.views,
-            source: statistics_source
-        }));
-		console.log("Request payload:", JSON.stringify({ order: 17, views: requestData }));
-		
-        // Send all data in one request
-		var requestDataStr=JSON.stringify(requestData);
-        $.ajax({
-            url: serverservicespath + 'statsservice.php',
-            type: 'post',
-            crossDomain: true,
-            data: JSON.stringify({order:17 ,views: requestData }),
-            contentType: 'application/json', // Set content type to JSON
-            timeout: 10000, // Short timeout for the request
-            success: function(response) {
-				
-                // Parse and log the echoed data from the server
-                if (response && response.received) {
-					console.log(response.status);
-                // Clear views from localStorage after successful save
-                    console.log("Received echoed data from server:", JSON.parse(response));
-					console.table(response);
-					localStorage.removeItem("views");
-					console.log("Views object Removed from localStorage after saving.");
-                } else {
-                    console.log("Unexpected response format from server:", response);
-                }
-				
-                // Redirect if next page exists
-                const nextPage = localStorage.getItem("nextpage");
-                if (nextPage) {
-                    window.location.href = nextPage;
-                }
-            },
-            error: function(jqXHR, textStatus, error) {
-                console.error("Error sending views:", textStatus, error);
-
-                // Handle the error and keep the data in localStorage for retry
-            }
-        });
-    } else {
-        console.log("No views to send.");
-    }
-	if(localStorage.getItem("nextpage")!==null){
-				window.location.href=localStorage.getItem("nextpage")
-	}
-}
-
-
-
-/* function save_send_views(){
+function save_send_views(){
 	//data : {order:16,srid:1,sr:'الانترنت الأرضي',subsrid:0,subsr:'',subsubsrid:0,subsubsr:'',source:'android',views:1 },
-	///check if their is visits in locstorage to send
+	/***check if their is visits in locstorage to send**/
 	var views_obj_arr=[]
 	var statistics_source=localStorage.getItem("statistics_source")
-	
-	console.log("the following is the views object in localStorage before saving")
-	console.log($.parseJSON(localStorage.getItem("views")));
-	
-	if(localStorage.getItem("views")!==null){
+	if(localStorage.getItem("views")!=null){
 		views_obj_arr = $.parseJSON(localStorage.getItem("views"));
 		//var pendingsendarr=views_obj_arr
 		for(a=0;a<views_obj_arr.length;a++){
@@ -217,13 +144,10 @@ function save_send_views() {
 						//val7 source of views => web or android or ios or tablet
 						//val8 no of views, if stored in localstorage get the number if sent directly to server set to 1
 					success : function(data) {
-						console.log("the following is the views object in localStorage after saving")
-						console.log($.parseJSON(localStorage.getItem("views")));
 						///clear localstorage vidws stats
 						views_obj_arr.splice(a,1)
 						localStorage.setItem("views",JSON.stringify(views_obj_arr))
 						//.shift();
-						console.log("the following is the views object in localStorage after saving to server and updating localstorage")
 						console.log($.parseJSON(localStorage.getItem("views")));
 					},
 					error : function(jqXHR, textStatus, error)
@@ -231,14 +155,11 @@ function save_send_views() {
 								////save views stats to localstorage
 								console.log(textStatus);	
 					}		 									 
-				});///end send views statistics ajax
-			}///END for
-			if(localStorage.getItem("nextpage")!==null){
-				window.location.href=localStorage.getItem("nextpage")
-			}
-			
+				});/***end send views statistics ajax**/
+			}/***END for**/
+			window.location.href=localStorage.getItem("nextpage")
 	}
-} */
+}
 
 /****function to manage views in local storage**/
 function manageviewslocal(srid,sr,subsrid,subsr,subsubsrid,subsubsr){
@@ -275,33 +196,26 @@ function manageviewslocal(srid,sr,subsrid,subsr,subsubsrid,subsubsr){
 	if(checkNetConnection()){
 		save_send_views()
 		//window.location.href=localStorage.getItem("nextpage")
-	}else{
-		window.location.href=localStorage.getItem("nextpage")
 	}
 }
 
-/**** Function to check if there is internet now ****/
-function checkNetConnection() {
-    var xhr = new XMLHttpRequest(); // Corrected the constructor name
-    var file = onlinedatapath + "ajax-loader.gif";
-    var r = Math.round(Math.random() * 10000); // Random query to prevent caching
-    xhr.open('HEAD', file + "?subins=" + r, false);
-
-    try {
-        xhr.send(); // Sends the request
-        if (xhr.status >= 200 && xhr.status < 304) {
-            console.log("Internet is active for sending the stats.");
-            return true;
-        } else {
-            console.log("Internet is NOT active for sending the stats.");
-            return false;
-        }
-    } catch (e) {
-        console.log("Internet is NOT active for sending the stats. Error: " + e.message);
-        return false;
-    }
+/****function to check if there is internet now****/
+function checkNetConnection(){
+ var xhr = new XMLhttpsRequest();
+ var file = serverdomainNpath+"mobileapp/imgs/ajax-loader.gif";
+ var r = Math.round(Math.random() * 10000);
+ xhr.open('HEAD', file + "?subins=" + r, false);
+ try {
+  xhr.send();
+  if (xhr.status >= 200 && xhr.status < 304) {
+   return true;
+  } else {
+   return false;
+  }
+ } catch (e) {
+  return false;
+ }
 }
-
 /***helper function to get the values of url parameters service,subservice, subsub service***/
 function GetURLParameterVisit(sParam,pUrl)
 {
@@ -322,11 +236,11 @@ function GetURLParameterVisit(sParam,pUrl)
 $(document).ready(function () {
 	//, .servucebox a.subserviceslink
 	localStorage.removeItem("nextpage")
-	$(document).on('mouseup touchend', '.enterbtn , .servucebox a.subserviceslink',function(event){
+	$(document).on('mouseup', '.enterbtn , .servucebox a.subserviceslink',function(event){
 		event.preventDefault()
-		sr="Home"
-		subsr="Home"
-		subsubsr="Home"
+		sr=""
+		subsr=""
+		subsubsr=""
 		if(GetURLParameterVisit("mainserviceID",$(this).attr("href"))==null){
 			srid=0
 			
@@ -346,9 +260,6 @@ $(document).ready(function () {
 			subsubsrid=parseInt(GetURLParameterVisit("sub_serviceID",$(this).attr("href")))
 		}
 		var link = $(this).attr("href");
-		if(link==null){
-			link="main.html"
-		}
 		localStorage.setItem("nextpage",link)
 		manageviewslocal(srid,sr,subsrid,subsr,subsubsrid,subsubsr)
 			//var signvideo=$(this).attr("data-signvid");/***sign video file path***/

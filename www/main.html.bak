@@ -14,7 +14,7 @@
 	<!-- Bootstrap RTL CSS -->
     <link rel="stylesheet" href="lib/bs/bootstrap.min.css" crossorigin="anonymous">
 	<!------css addons and plugins------->
-	<link rel="stylesheet" href="lib/jq-confirm/jquery-confirm.min.css" crossorigin="anonymous">
+	<!--<link rel="stylesheet" href="lib/jq-confirm/jquery-confirm.min.css" crossorigin="anonymous">-->
 	<!--- --------------------------------swiper---------------------------->
     <!--<link href="lib/swiper/swiper.min.css" rel="stylesheet">--->
 	
@@ -25,14 +25,14 @@
 	
 	
 	<!---this page css---->
-	<link rel="stylesheet" href="css/complaindone.css" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/main.css" crossorigin="anonymous">
 	
     <title>تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة (صم ومكفوفين)</title>
   </head>
   <body>
     <div class="wrapperpage"><!---page wrapper-->
 	<!-- Modal video player------------------------------------------>
-		<div id="video_popup" class="modal  easein" tabindex="-1" data-easein="bounceIn" role="document" aria-hidden="true">
+		<div id="video_popup" class="modal  easein"  data-backdrop="static" data-keyboard="false"  tabindex="-1" data-easein="bounceIn" role="document" aria-hidden="true">
 		  <div class="modal-dialog modal-dialog-centered  modal-lg modal-fullwidth" >
 
 			<!-- Modal content-->
@@ -103,7 +103,7 @@
 			</button>
 			
 			<div class="topheadertxt">
-					تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة (صم ومكفوفين)
+					تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة
 			</div>
 			<div class="topheaderlogo">
 					<img src="imgs/welogoheader.png" class="headerwelogoimg">
@@ -116,43 +116,96 @@
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand"> <a href="main.html"> الرئيسية </a> </li>
                     <li> <a href="aboutproject.html">عن المشروع</a> </li>
-                    <li> <a href="registeruser.html">تسجيل البيانات</a> </li>
-					<li> <a href="offers.html">العروض</a></li>
-                    <li> <a href="services.html?mainserviceID=1">خدمات الموبايل</a> </li>
-                    <li> <a href="services.html?mainserviceID=20">خدمات الانترنت المنزلي</a> </li>
-                    <li> <a href="services.html?mainserviceID=39">خدمات الخط الأرضي</a> </li>
-                    <li> <a href="importantnumbers.html">ارقام تهمك</a> </li>
-					<li> <a href="complain.html">قدم شكوى / مقترح</a> </li>
-					<li> <a href="replies.html">متابعة شكوى / مقترح</a> </li>
-					<li> <a href="myfav.html">المفضلة</a> </li>
-					<li> <a href="callcs.html">ارقام خدمة العملاء</a> </li>
+                    <li> <a href="services.html?mainserviceID=1">الخدمات</a> </li>
 					<li> <a href="tebranches.html">الفروع</a> </li>
-					<li> <a href="otherdeafapps.html">برامج اخرى لذوي الأعاقة</a> </li>
 					<li> <a href="chat.html">تحدث مع الموظف</a> </li>
-                </ul>
+					                </ul>
             </div> <!-- /#sidebar-wrapper -->
             <!-- Page Content -->
             <div id="page-content-wrapper">
                 <div class="container-fluid">
-                    <div class="htmlcontent complains_page">
+                    <div class="htmlcontent maincategoriespage">
 						<!-----------------------------HTML content to be added here--------------------------->
 						<div class="row">
-							<div class="col-12 d-flex justify-content-center rounded2 align-items-center complain_intro_container">
-								لقد تم تقديم المقترح / الشكوى ورقمها 
-									<div class="complainID" style="display:inline;font-size:1rem;color:green;font-weight:bold;padding:0 1rem;"></div>
-									يرجى حفظ رقم الشكوى للمتابعة لاحقا مع خدمة العملاء . وشكرا!
-							</div>
-							<div class="row col-12 d-flex justify-content-center rounded2 align-items-center complain_done_container">
-							
-								<div class="col-12 col-md-6 d-flex justify-content-center align-items-center signbtn_container">
-										<a href="main.html"  class="btn btn-te1 col-12 comoplaindone_btn">الذهاب للصفحة الرئيسية</a>
-								</div>
-								<div class="col-12 col-md-6 d-flex justify-content-center rounded2 align-items-center signbtn_container">
-									<a href="complain.html"  class="btn btn-te1 col-12 comoplaindone_btn">تقديم شكوى / مقترح آخر</a>
-								</div>
+								<div class="row col-12 d-flex justify-content-center rounded2 align-items-center complain_intro_container" style="display:none !important;">
+									<div class="col-12 col-sm-3 d-flex justify-content-center align-items-center signbtn_container">
+										<button type="button" class="btn btn-default signvideo_btn img-fluid" data-video="videos/main/1.webm">	
+											<img alt="" title="ترجم للغة الاشارة" src="imgs/signvideoicon.png" class="rounded img-fluid">
+										</button>	
+									</div>
+									<div class="col-12 col-sm-9 d-flex justify-content-center rounded2 align-items-center complain_intro_txt">
+										عند استخدامك للتطبيق ستجد الخدمات والعروض التي تقدمها الشركة مع صور توضيحية وأيقونة للترجمة للغة الاشارة للصم ونص يوضح وصف كل خدمة أو عرض وعند اختيارك لخدمة أو عرض يمكنك معرفة الخطوات المطلوبة للحصول على الخدمة أو العرض ومعرفة المستندات المطلوبة وكذلك الأسئلة الشائعة واجاباتها الخاصة بالخدمة أو العرض والشروط والأحكام الخاصة بهذه الخدمة أو العرض ويمكنك إضافة العرض أو الخدمة للمفضلة.<br>كما يمكنك من خلال البرنامج لديك على المحمول من تقديم شكوى أو مقترح ومتابعتها.<br>كما يمكنك معرفة أماكن فروع الشركة، حيث أنك بعد معرفة خطوات الخدمة وتجهيز أوراقك المطلوبة يمكنك التوجه للفرع للحصول على الخدمة.
 
-							</div>
-						</div><!----End Row--->
+									</div>
+								</div>
+															
+								<div class="col-sm-12 col-12 ">
+									
+									<div class="servucebox moblie_main_service">
+										<a class="subserviceslink" href="services.html?mainserviceID=1">
+											<div class="overlaybox serviceA">
+												<div class="mainserviceH">
+													<h2 class="mainservice_h"></h2>
+												</div>
+												<div class="mainserviceIcon">
+													<div class="col-12 justify-content-center align-items-center welogo_div">
+													<table style="width:100%; text-align:center;">
+													<tr>
+													<td>
+															<img class="rounded mx-auto d-block img-fluid welogo_img" src="imgs/eehc_ministry_logo.png" style="height:170px;" data-imgs="imgs/eehc_logo.png">
+													
+													</td>
+													<td>
+														<img class="rounded mx-auto d-block img-fluid welogo_img" src="imgs/eehc_logo.png" style="height:170px;" data-imgs="imgs/eehc_logo.png">
+													</td>
+													</tr>
+													</table>
+													</div>
+												</div>
+											</div>
+										</a>
+										<div class="servicebox_descbox" style="display:none;">
+											<div class="row align-items-center h-100">
+												<div class="col-8 mainservice_desc">
+													
+												</div>
+												<div class="col-4">
+													<button type="button" class="btn btn-default service_main_vid_btn service_main_vid slide-icons-signvid" data-video="data/services/4/4.webm"><img alt="" title="ترجم للغة الاشارة" src="imgs/signvideoicon.png" class="img-responsive"></button>
+												</div>
+											</div><!---end row-->
+										</div>
+									</div>
+									
+								</div>
+								
+								
+								<div class="col-sm-12 col-12 row footer_logos">
+									<div class="col-3">
+			
+											<img class="rounded mx-auto d-block img-fluid supporting_logos" style="height:190px;" src="imgs/KCGGWithTitle.png" data-imgs="imgs/KCGGWithTitle.png">
+											<div class="col-12 justify-content-center align-items-center footer_txt">تطوير وبرمجة - مجموعة خليفة للكمبيوتر</div>
+										</div>
+										<div class="col-3">
+											
+											<img class="rounded mx-auto d-block img-fluid supporting_logos" src="imgs/deafuniionegy_logo_h200.png" data-imgs="imgs/deafuniionegy_logo_h200.png">
+											<div class="col-12 justify-content-center align-items-center footer_txt">اعتماد لغة الاشارة - الاتحاد النوعي لجمعيات الصم</div>
+										</div>
+										<div class="col-3">
+										
+											<img class="rounded mx-auto d-block img-fluid supporting_logos" src="imgs/NAID_logo.jpg" data-imgs="imgs/NAID_logo.jpg">
+											<div class="col-12 justify-content-center align-items-center footer_txt">برعاية - الأكاديمية الوطنيه لتكنولوجيا المعلومات لذوي الاعاقة</div>
+										</div>
+										<div class="col-3">
+										
+											<img class="rounded mx-auto d-block img-fluid supporting_logos" src="imgs/MCITlogoAr.png" data-imgs="imgs/MCITlogoAr.png">
+											<div class="col-12 justify-content-center align-items-center footer_txt">برعاية وزارة الاتصالات وتكنولوجيا المعلومات</div>
+										</div>
+								</div>
+								<div class="col-sm-12 col-12">
+								
+								</div>
+								
+							</div><!----End Row--->
 						<!---------------------------END HTML content------------------------------------------>
        		</div>
                 </div>
@@ -175,7 +228,7 @@
 	<!------js addons and plugins------->
 	<script src='lib/velocity/velocity.min.js'></script>
 	<script src='lib/velocity/velocity.ui.min.js'></script>
-	<script src="lib/jq-confirm/jquery-confirm.min.js" crossorigin="anonymous"></script>
+	<!--<script src="lib/jq-confirm/jquery-confirm.min.js" crossorigin="anonymous"></script>-->
 	<!--<script src="lib/nicescroll-sidebar/jquery.nicescroll.min.js" crossorigin="anonymous"></script>-->
 	<!--<script src="lib/swiper/swiper.min.js" crossorigin="anonymous"></script>-->
 	
@@ -184,7 +237,7 @@
 	<script src="js/appcomon.js" crossorigin="anonymous"></script>
 	
 	<!---this page js---->
-	<script src="js/complaindone.js" crossorigin="anonymous"></script>
+	<script src="js/main.js" crossorigin="anonymous"></script>
 	
   </body>
 </html>

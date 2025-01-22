@@ -31,8 +31,7 @@
 	<link href="css/chat_pics_columns.css" rel="stylesheet">
 	<link href="css/chat_balloon.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/chat.css" crossorigin="anonymous">
-	<!-- <script src="http://code.responsivevoice.org/responsivevoice.js?key=q1kohWr5"></script> -->
-	<script src="js/responsivevoice.src.js?key=q1kohWr5"></script>
+	<script src="http://code.responsivevoice.org/responsivevoice.js?key=q1kohWr5"></script>
     <title>تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة</title>
   </head>
   <body>
@@ -485,7 +484,6 @@
 	<!---this page js---->
 	<script src="js/chat_pics.js"></script>
 	<script src="js/chat.js" crossorigin="anonymous"></script>
-	<!-- <script src="http://code.responsivevoice.org/responsivevoice.js?key=q1kohWr5"></script> -->
 	
   </body>
 </html>

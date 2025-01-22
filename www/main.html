@@ -8,7 +8,9 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="Khalifa Computer Group - مجموعة خليفة للكمبيوتر">
-	<link href="te.ico" rel="shortcut icon" type="image/x-icon">
+	<meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: file:">
+
+	<link href="elclogo.ico" rel="shortcut icon" type="image/x-icon">
     <!-- Bootstrap CSS 
     <link rel="stylesheet" href="lib/bs/bootstrap.min.css" crossorigin="anonymous">-->
 	<!-- Bootstrap RTL CSS -->
@@ -28,6 +30,15 @@
 	<link rel="stylesheet" href="css/main.css" crossorigin="anonymous">
 	
     <title>تطبيقات خدمة الأشخاص ذوي الاحتياجات الخاصة (صم ومكفوفين)</title>
+	<style>
+	body{
+	background-image: url('imgs/backgroundpattern.png'); /* Path to your image */
+            background-repeat: no-repeat; /* Prevent tiling */
+            background-position: center center; /* Center horizontally and vertically */
+            background-size: contain; /* Ensure the image fits within the viewport without cropping */
+            
+	}
+	</style>
   </head>
   <body>
     <div class="wrapperpage"><!---page wrapper-->
@@ -238,6 +249,5 @@
 	
 	<!---this page js---->
 	<script src="js/main.js" crossorigin="anonymous"></script>
-	
   </body>
 </html>
