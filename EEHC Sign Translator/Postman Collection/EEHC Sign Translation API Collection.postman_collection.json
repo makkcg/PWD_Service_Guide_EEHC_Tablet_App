@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "ef2188d8-04c0-4a09-a5e9-0d766da7f6c4",
+		"name": "EEHC Sign Translation API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31980393",
+		"_collection_link": "https://sign-api.postman.co/workspace/Team-Workspace~52915f0a-7bc4-44d9-8e29-9ed4affcb80c/collection/31980393-ef2188d8-04c0-4a09-a5e9-0d766da7f6c4?action=share&source=collection_link&creator=31980393"
+	},
+	"item": [
+		{
+			"name": "Translate Paragraph",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Security-Key",
+						"value": "678c047ca29ea",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "parag",
+							"value": "محمد قال . علي",
+							"description": "{Required} Text To translate to sign language",
+							"type": "text"
+						},
+						{
+							"key": "translator",
+							"value": "1",
+							"description": "{Required} Translator ID",
+							"type": "text"
+						},
+						{
+							"key": "enable_translate_letters",
+							"value": "",
+							"description": "{Optional} to return letters if word was not found",
+							"type": "text"
+						},
+						{
+							"key": "enable_formation",
+							"value": "",
+							"description": "{Optional} enable Search with Vocalization الترجمة بالتشكيل",
+							"type": "text"
+						},
+						{
+							"key": "enable_auto_translate",
+							"value": "",
+							"description": "{Optional} get high frequent word if there was many vedios for one word",
+							"type": "text"
+						},
+						{
+							"key": "enable_smart_number_reader",
+							"value": "",
+							"description": "{Optional} enable translating numbers, dates and phone numbers",
+							"type": "text"
+						},
+						{
+							"key": "enable_grammer",
+							"value": "",
+							"description": "{Optional} enable grammar translation",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://signapiv4.kcgpwdapi.org/public/api/sep_ideom",
+					"protocol": "https",
+					"host": [
+						"signapiv4",
+						"kcgpwdapi",
+						"org"
+					],
+					"path": [
+						"public",
+						"api",
+						"sep_ideom"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
