@@ -2,13 +2,25 @@
 <widget id="com.kcg.pwd" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>خدمات وزارة الكهرباء</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        تطبيق التابليت خدمة المواطنين الصم
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="mk@diginovia.com" href="http://cordova.io">
+        Diginovia a KCG company
     </author>
+	
+	<preference name="SplashScreen" value="screen"/>
+	<preference name="SplashScreenDelay" value="3000"/> <!-- Duration in milliseconds -->
+	<preference name="FadeSplashScreen" value="true"/>
+	<preference name="FadeSplashScreenDuration" value="500"/> <!-- Fade duration in milliseconds -->
+	<preference name="ShowSplashScreenSpinner" value="false"/> <!-- Disable spinner -->
+	<preference name="SplashMaintainAspectRatio" value="true"/>
+
+	<icon src="res/tabappicon.png" />
     <content src="start.html" />
     <access origin="*" />
+	<allow-navigation href="file://*/*" />
+	<access origin="file://*" />
+
 	<allow-navigation href="http://*/*"/>
     <allow-navigation href="https://*/*"/>
     <allow-navigation href="data:*"/>
@@ -24,10 +36,17 @@
 	<preference name="AndroidPersistentFileLocation" value="Internal" />
     <preference name="AndroidExtraFilesystems" value="files,files-external,documents,sdcard,cache,cache-external,assets,root" />
     <preference name="orientation" value="landscape" />
-    <platform name="android">
 	
-        
-    </platform>
+    <platform name="android">
+		<allow-navigation href="file://*" />
+		<preference name="AndroidInsecureFileModeEnabled" value="true" />
+		<preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/splash.png" />
+        <!-- Background color for splash screen -->
+        <preference name="AndroidWindowSplashScreenBackground" value="#FFFFFF" />
+        <!-- Maintain aspect ratio -->
+        <preference name="AndroidWindowSplashScreenScaleType" value="FIT_CENTER" />
+	</platform>
+
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
