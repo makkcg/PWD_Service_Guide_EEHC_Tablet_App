@@ -14,7 +14,7 @@ let ServerTabServicesPath= "https://accessibility.eehc.gov.eg/public/uploads/tab
 //2-2 update the ZipDataFiles-Download' to the latest downloaded file name
 
 //////////////DOWNLOAD UDATE ROUTINE///////
-///////CHECK & CREATE LIST OF FILES /////////////
+///////CHECK & CREATE LIST OF FILES ///////////// 
 //1- check the local storage of list-zipfiles , if exsist complete the uncompleted status of the files if not start creating list if there is updates 
 //1-get the ZipDataFiles-Download' value e.g data0 
 //2 get the list of filenames after ZipDataFiles-Download' value and create local storage list-zipfiles : filenames, files sizes and status (0 not downloaded, 1 downloaded,2 unzipped, 3 deleted)
@@ -158,7 +158,7 @@ function downloadFile(filename) {
 
 					fileEntry.createWriter(async function(fileWriter) {
 						console.log("File writer ready. Writing in chunks...");
-
+						$("#details").html("<div class='' style='width:100%;padding:10px;'>Wait while writing the downloaded file...</div>")
 						// ✅ Define Chunk Size
 						const CHUNK_SIZE = 1024 * 1024; // 1 MB chunks
 						const totalBytes = blob.size;
@@ -167,6 +167,7 @@ function downloadFile(filename) {
 						async function writeChunk() {
 							if (offset >= totalBytes) {
 								console.log("✅ File written successfully in chunks.");
+								
 								//alert("Download Complete!");
 								//checkFileWithPlugin(filename); 
 								$("#bardiv").hide();
@@ -189,6 +190,7 @@ function downloadFile(filename) {
 								writeChunk(); // Continue writing the next chunk
 							} else {
 								console.log("✅ Final chunk written, file complete! "+ filename);
+								$("#details").html("<div class='' style='width:100%;padding:10px;'>✅ Final chunk written, file complete! "+ filename+"</div>")
 								//alert("File written completely! "+filename);
 								checkFileWithPlugin(filename);
 								$("#bardiv").hide();
@@ -262,7 +264,7 @@ function checkFileWithPlugin(filename) {
 }
 
 ///////////////new unzip function 2025///////////////////
-function UnZipFile2(fileName,listOfFilesToUnzip) {
+/* function UnZipFile2(fileName,listOfFilesToUnzip) {
     const sourcePath = cordova.file.dataDirectory + fileName;
     const destinationPath = localStorage.getItem("datafolderpath");
 
@@ -319,7 +321,176 @@ function UnZipFile2(fileName,listOfFilesToUnzip) {
 		processDUDTasks("download");
 		
     });
+} */
+function UnZipFile2(fileName, listOfFilesToUnzip) {
+    const sourcePath = cordova.file.dataDirectory + fileName;
+    const destinationPath = localStorage.getItem("datafolderpath");
+    const tempUnzipPath = cordova.file.dataDirectory + "temp_unzip/";
+
+    console.log("Starting unzipping process for: " + sourcePath);
+
+    // Show progress message
+    $("#divalert").html(
+        `<strong>من فضلك إنتظر حتى يتم التنصيب</strong> جاري تنصيب الملف رقم: ${listOfFilesToUnzip.length}`
+    );
+    $("#bardiv").show();
+
+    // Resolve the source file to ensure it exists
+    window.resolveLocalFileSystemURL(
+        sourcePath,
+        function (fileEntry) {
+            console.log("File found, proceeding with unzipping: " + fileEntry.nativeURL);
+			$("#details").html("<div class='' style='width:100%;padding:10px;'>✅ File found, proceeding with unzipping: "+ "</div>")
+            // Create or resolve the temporary unzip directory
+            window.resolveLocalFileSystemURL(
+                tempUnzipPath,
+                function (tempDirEntry) {
+                    startUnzipping(fileEntry, tempDirEntry);
+                },
+                function () {
+                    // If temp directory doesn't exist, create it
+                    window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (dataDirEntry) {
+                        dataDirEntry.getDirectory(
+                            "temp_unzip",
+                            { create: true },
+                            function (newTempDirEntry) {
+                                startUnzipping(fileEntry, newTempDirEntry);
+                            },
+                            function (error) {
+                                console.error("❌ Error creating temp unzip directory:", error);
+                                showErrorAndContinue("Failed to create temp directory");
+                            }
+                        );
+                    });
+                }
+            );
+        },
+        function (error) {
+            console.error("❌ File not found for unzipping: " + sourcePath, error);
+            showErrorAndContinue("File not found");
+        }
+    );
+
+    function startUnzipping(fileEntry, tempDirEntry) {
+        // Show progress bar
+        $("#bardiv").html(
+            `<div class='progress-bar progress-bar-striped active' style='width:0%'>0%</div>`
+        );
+
+        zip.unzip(
+            fileEntry.nativeURL, // Source file path
+            tempDirEntry.nativeURL, // Temporary unzip directory
+            function (status) {
+                if (status === 0) {
+                    console.log("✅ Unzipping successful for: " + fileEntry.nativeURL);
+                    $("#bardiv").html(
+                        `<div class='progress-bar progress-bar-success' style='width:100%'>Unzipping Complete</div>`
+                    );
+                    setTimeout(() => {
+                        $("#bardiv").hide();
+                    }, 1000);
+
+                    // Merge unzipped content into the destination directory
+                    mergeUnzippedContent(tempDirEntry.nativeURL, destinationPath, function () {
+                        console.log("✅ Merge complete, cleaning up temporary directory");
+                        deleteTempDirectory(tempDirEntry.nativeURL, function () {
+                            updateStatusInLocalStorage(fileName, "unzipped");
+                            processDUDTasks("unzip");
+                        });
+                    });
+                } else {
+                    console.error(`❌ Unzipping failed. Status Code: ${status}`);
+                    $("#bardiv").html(
+                        `<div class='progress-bar progress-bar-danger' style='width:100%'>Unzipping Failed</div>`
+                    );
+                    showErrorAndContinue("Unzipping failed");
+                }
+            },
+            function (progressEvent) {
+                // Update progress bar
+                const percent = Math.round((progressEvent.loaded / progressEvent.total) * 100);
+                console.log(`Unzipping progress: ${percent}%`);
+                $("#bardiv").html(
+                    `<div class='progress-bar progress-bar-info' style='width:${percent}%'>${percent}%</div>`
+                );
+            }
+        );
+    }
+
+    function mergeUnzippedContent(tempUnzipPath, destinationPath, callback) {
+        console.log(`Merging content from ${tempUnzipPath} to ${destinationPath}`);
+
+        // Resolve the destination directory
+        window.resolveLocalFileSystemURL(destinationPath, function (destinationDirEntry) {
+            // Resolve the temporary directory
+            window.resolveLocalFileSystemURL(tempUnzipPath, function (tempDirEntry) {
+                const reader = tempDirEntry.createReader();
+                reader.readEntries(function (entries) {
+                    let totalFiles = entries.length;
+                    let processedFiles = 0;
+
+                    if (totalFiles === 0) {
+                        console.log("No files to merge.");
+                        callback(); // Proceed if no files to merge
+                        return;
+                    }
+
+                    entries.forEach(function (entry) {
+                        if (entry.isDirectory) {
+                            // Handle directories recursively
+                            destinationDirEntry.getDirectory(entry.name, { create: true }, function (subDirEntry) {
+                                mergeUnzippedContent(entry.nativeURL, subDirEntry.nativeURL, function () {
+                                    processedFiles++;
+                                    if (processedFiles === totalFiles) callback();
+                                });
+                            });
+                        } else if (entry.isFile) {
+                            // Copy file to the destination
+                            entry.copyTo(
+                                destinationDirEntry,
+                                entry.name,
+                                function () {
+                                    console.log(`✅ File merged: ${entry.name}`);
+									$("#details").html("<div class='' style='width:100%;padding:10px;'>✅ writing Unzipped files: "+ processedFiles+"</div>")
+                                    processedFiles++;
+                                    if (processedFiles === totalFiles) callback();
+                                },
+                                function (error) {
+                                    console.error(`❌ Error merging file: ${entry.name}`, error);
+                                    processedFiles++;
+                                    if (processedFiles === totalFiles) callback();
+                                }
+                            );
+                        }
+                    });
+                });
+            });
+        });
+    }
+
+    function deleteTempDirectory(tempDirPath, callback) {
+        window.resolveLocalFileSystemURL(tempDirPath, function (dirEntry) {
+            dirEntry.removeRecursively(function () {
+                console.log(`✅ Temporary directory deleted: ${tempDirPath}`);
+				$("#details").html("<div class='' style='width:100%;padding:10px;'>✅ Cleaning up ....: "+"</div>")
+                if (callback) callback();
+            }, function (error) {
+                console.error(`❌ Error deleting temporary directory: ${tempDirPath}`, error);
+                if (callback) callback();
+            });
+        });
+    }
+
+    function showErrorAndContinue(message) {
+        console.error(message);
+        $("#bardiv").html(
+            `<div class='progress-bar progress-bar-danger' style='width:100%'>${message}</div>`
+        );
+        updateStatusInLocalStorage(fileName, "pending");
+        processDUDTasks("download");
+    }
 }
+
 
 // Delete the ZIP file after extraction
 function DeleteFile(filename) {
@@ -330,6 +501,7 @@ function DeleteFile(filename) {
         // Attempt to remove the file
         fileEntry.remove(function() {
             console.log(`File ${filename} deleted successfully`);
+			$("#details").html("<div class='' style='width:100%;padding:10px;'>✅ Cleaning up ....: "+filename+"</div>")
             
 			// Proceed to the next step after deletion
 			updateStatusInLocalStorage(filename, "deleted");
